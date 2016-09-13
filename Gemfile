@@ -34,5 +34,12 @@ group :development, :test do
   gem 'capybara'
 end
 
+group :development do
+  gem 'web-console',           '3.1.1'
+  gem 'listen',                '3.0.8'
+  gem 'spring',                '1.7.2'
+  gem 'spring-watcher-listen', '2.0.0'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
