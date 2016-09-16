@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @keys = @user.keys.build({secteur: "Tous", clef: "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345678"})
+    key = @user.keys.build({secteur: "Tous", clef: "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345678"})
   end
 
   # GET /users/1/edit
