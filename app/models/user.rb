@@ -22,11 +22,12 @@ class User < ApplicationRecord
   
   #Validations
   validates :nom, :section, presence: true, length: {maximum: 100}
-  validates :prenom, length: {maximum: 100}
+  validates :prenom, presence: true, length: {maximum: 100}
   validates :email, presence: true, length: { maximum: 200 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
+  has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
   
   #Relations
-  has_many :keys
+  has_many :keys, :dependent => :destroy
   accepts_nested_attributes_for :keys, :reject_if => :all_blank, :allow_destroy => true
 end
