@@ -35,6 +35,18 @@
     <%= f.label :password %>
     <%= f.text_field :password %>
   </div>
+  
+<hr/>
+<h2>Liste de clefs</h2>
+
+<table>
+  <%=  f.fields_for :keys do |key| %>
+  <tr>
+    <td><%= key.secteur %> </td>
+    <td><%= key.clef %> </td>
+  </tr>
+<% end %>
+</table>
 
   <div class="actions">
     <%= f.submit %>

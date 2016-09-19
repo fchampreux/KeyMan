@@ -20,6 +20,9 @@
   <%= @user.email %>
 </p>
 
+<hr/>
+<h2>Liste de clefs</h2>
+
 <table>
   <%  @user.keys.each do |key| %>
   <tr>
@@ -27,8 +30,8 @@
     <td><%= key.clef %> </td>
     <td><%= key.key_hash %> </td>
   </tr>
-</table>
 <% end %>
+</table>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
