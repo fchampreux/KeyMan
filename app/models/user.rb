@@ -19,11 +19,12 @@ class User < ApplicationRecord
 
   #Filters
   before_save { self.email = email.downcase }
-  
+=begin  
   #Validations
   validates :nom, :section, presence: true, length: {maximum: 100}
   validates :prenom, presence: true, length: {maximum: 100}
   validates :email, presence: true, length: { maximum: 200 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
+=end
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
   

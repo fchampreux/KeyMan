@@ -1,4 +1,4 @@
-<%= form_for(user) do |f| %>
+<%= form_for(@user) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -42,8 +42,8 @@
 <table>
   <%=  f.fields_for :keys do |key| %>
   <tr>
-    <td><%= key.secteur %> </td>
-    <td><%= key.clef %> </td>
+    <td><%= key.text_field :secteur %> </td>
+    <td><%= key.text_field :clef %> </td>
   </tr>
 <% end %>
 </table>
