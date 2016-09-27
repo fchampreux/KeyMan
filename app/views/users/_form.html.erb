@@ -34,16 +34,18 @@
   <div class="field">
     <%= f.label :password %>
     <%= f.text_field :password %>
+    Retype
+    <%= f.text_field :password_confirmation %>
   </div>
   
 <hr/>
 <h2>Liste de clefs</h2>
 
 <table>
-  <%=  f.fields_for :keys do |key| %>
+  <%=  f.fields_for :ciphers do |cipher| %>
   <tr>
-    <td><%= key.text_field :secteur %> </td>
-    <td><%= key.text_field :clef %> </td>
+    <td><%= cipher.text_field :secteur %> </td>
+    <td><%= cipher.text_field :clef %> </td>
   </tr>
 <% end %>
 </table>

@@ -24,11 +24,11 @@
 <h2>Liste de clefs</h2>
 
 <table>
-  <%  @user.keys.each do |key| %>
+  <%  @user.ciphers.each do |cipher| %>
   <tr>
-    <td><%= key.secteur %> </td>
-    <td><%= key.clef %> </td>
-    <td><%= key.key_hash %> </td>
+    <td><%= cipher.secteur %> </td>
+    <td><%= cipher.clef %> </td>
+    <td><%= cipher.cipher_hash %> </td>
   </tr>
 <% end %>
 </table>

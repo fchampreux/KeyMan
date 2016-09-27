@@ -29,6 +29,6 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
   
   #Relations
-  has_many :keys, :dependent => :destroy
-  accepts_nested_attributes_for :keys, :reject_if => :all_blank, :allow_destroy => true
+  has_many :ciphers, :dependent => :destroy
+  accepts_nested_attributes_for :ciphers, :reject_if => :all_blank, :allow_destroy => true
 end
