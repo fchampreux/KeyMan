@@ -1,0 +1,261 @@
+// Place all the styles related to the ODQ application here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+/* Navbar */
+$bgDefault      : #227867; 
+$bgHighlight    : #00aa88;
+$colDefault     : #d7f4e3;
+$colHighlight   : #afe9c6;
+
+/* Header Fonts */
+$headerFont           : helvetica;
+$headerFontColor      : #227867; 
+$headerFontHighlight  : #00aa88;
+
+/* Body Fonts */
+$bodyFont             : arial;
+$bodyFontColor      : #227867; 
+$bodyFontHighlight  : #00aa88;
+
+/* Footer Fonts */
+$footerFont           : helvetica;
+$footerFontColor      : #f0ff0; 
+$footerFontHighlight  : #00aa88;
+
+/* Links */
+$linkBackground: #f0f0f0;
+
+
+$grayMediumLight: #eaeaea;
+$grayLight: #f0f0f0;
+$grayDarker: #c0c0c0;
+$menu_color:rgb(33, 120, 103);
+$menu_bright:rgb(44, 160, 136);
+
+/* universal */
+
+html {
+}
+
+body {
+  padding-top: 10px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  text-align: left;
+}
+
+h2 {
+  font-size: 1.7em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: left;
+  font-weight: normal;
+  color: $grayDarker;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+  height: 100px;
+}
+
+
+/* header */
+
+.logo {
+  img{
+  float: left;
+  max-width:150%;
+  max-height:150%;
+  padding:10px 5px 10px 10px;
+  }
+}
+
+.top_menu {
+  float: right;
+  font-weight: bold;
+  color: $headerFontColor;
+  margin-right: 20px;
+  li {list-style-type: none;
+      display:inline;
+  }
+  a {
+    color: $headerFontColor;
+    &:hover {
+      color: $headerFontHighlight;
+      background-color: $linkBackground;
+    }
+  }
+}
+
+.side_menu {
+  border: 2px solid;
+  border-radius: 25px;
+  margin-left: 20px;
+  font-weight: bold;
+  color: $headerFontColor;
+    padding: 10px 10px 10px 10px;
+  li {list-style-type: none;
+  }
+  a {
+    color: $headerFontColor;
+    &:hover {
+      color: $headerFontHighlight;
+      background-color: $linkBackground;
+    }
+  }
+  b { 
+
+    color: $headerFontColor;
+    font-size: 1.2em;
+  }
+}
+
+
+
+/* body */
+
+.mid_menu {
+  li {
+    display:inline;
+  }
+}
+
+.breadcrumbs {
+  li {
+    display:inline;
+  }
+}
+
+.splash {
+  img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* footer */
+
+footer {
+  padding: 20px 20px 20px 20px;
+  font-weight: bold;
+  color: $footerFontColor;
+  li {
+    display:inline;
+  }
+  a {
+    color: $footerFontColor;
+    &:hover {
+      color: $footerFontHighlight;
+      background-color: $linkBackground;
+    }
+  }
+}
+
+
+
+/* tables */
+td.col_narrow {
+    width:10%;
+    }
+
+
+td.col_medium{
+    width:30%;
+    }
+
+
+td.col_wide{
+    width:50%;
+    }
+    
+/*Navigation */
+.navbar-default {
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+  .navbar-brand {
+    color: $colDefault;
+    &:hover, &:focus { 
+      color: $colHighlight; }}
+  .navbar-text {
+    font-size: 1.7em;
+    color: $colDefault; }
+  .navbar-nav {
+    > li {
+      font-size: 1.7em;
+      > a {
+        color: $colDefault;
+        &:hover,  &:focus {
+          color: $colHighlight; }}}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover, &:focus {
+      background-color: $bgHighlight; }
+    .icon-bar {
+      background-color: $colDefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault; }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus, {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+}
+
+

@@ -1,13 +1,23 @@
 <header>
-  <%= image_tag("images/CH.jpg", alt: "KeyMan") %>
-  <span>Cryptographic Keys Manager</span>
-  <ul>
-    <% if logged_in? %>
-    <li> <%= t('User') %> <%= current_user %> </li>
-    <li> <%= link_to t('Sign_out'), logout_path, method: "delete" %></li>
-    <% else %>
-    <li> <%= link_to t('Sign_in'), login_path %></li>
-    <% end %>
-    <li> <%= link_to t('Help'), "#" %> </li>
-  </ul>
+  <div class="row">
+    <div class="col-md-2">
+      <%= image_tag("ch.png", alt: "KeyMan") %>
+    </div>
+    <div class="col-md-4">
+      <span><h1>Cryptographic Keys Manager</h1></span>
+    </div>
+    <div class="col-md-3">
+      <nav class="top_menu">
+        <ul>
+          <% if logged_in? %>
+          <li> <%= t('User') %>: <%= current_user.nom %></li>
+          <li> | <%= link_to t('Sign_out'), logout_path, method: "delete" %></li>
+          <% else %>
+          <li> | <%= link_to t('Sign_in'), login_path %></li>
+          <% end %>
+          <li> | <%= link_to t('Help'), "#" %> </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </header>

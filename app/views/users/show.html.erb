@@ -1,3 +1,5 @@
+<h1>User and ciphers</h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -24,11 +26,16 @@
 <h2>Liste de clefs</h2>
 
 <table>
+  <tr>
+    <th>Secteur</th>
+    <th>Cipher</th>
+    <th>Cryptogramme</th>
+  </tr>
   <%  @user.ciphers.each do |cipher| %>
   <tr>
-    <td><%= cipher.secteur %> </td>
-    <td><%= cipher.clef %> </td>
-    <td><%= cipher.cipher_hash %> </td>
+    <td class="col_narrow"><%= cipher.secteur %> </td>
+    <td class="col_medium"><%= cipher.clef %> </td>
+    <td class="col_wide"><%= cipher.cipher_hash %> </td>
   </tr>
 <% end %>
 </table>
