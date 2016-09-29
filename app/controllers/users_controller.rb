@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user
 
   # GET /users
   # GET /users.json
@@ -62,16 +63,6 @@ class UsersController < ApplicationController
     end
   end
 
-  #API
-  def api
-    @user = User.find(params[:id])
-    puts @user.nom
-    respond_to do |format|
-      format.html 
-      format.json { render json: @user.nom }
-    end
-  end
-  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

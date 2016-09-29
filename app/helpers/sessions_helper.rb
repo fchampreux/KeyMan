@@ -19,5 +19,10 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
   end
+
+  # Check for active session
+  def logged_in_user
+    redirect_to login_url, notice: "You must log in to access this page." unless logged_in?
+  end
   
 end
