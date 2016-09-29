@@ -1,38 +1,67 @@
-<h1>User and ciphers</h1>
+<h1><%= t('UsersCiphers') %></h1>
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nom:</strong>
-  <%= @user.nom %>
-</p>
+<div class="row">
+  <div class="col-md-1">
+    <%= t('Name') %>
+  </div>
+  <div class="col-md-3">
+    <%= @user.nom %>
+  </div>
+</div>
 
-<p>
-  <strong>Prenom:</strong>
-  <%= @user.prenom %>
-</p>
+<div class="row">
+  <div class="col-md-1">
+    <%= t('First name') %>
+  </div>
+  <div class="col-md-3">
+    <%= @user.prenom %>
+  </div>
+</div>
 
-<p>
-  <strong>Section:</strong>
-  <%= @user.section %>
-</p>
+<div class="row">
+  <div class="col-md-1">
+    <%= t('Section') %>
+  </div>
+  <div class="col-md-3">
+    <%= @user.section %>
+  </div>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<div class="row">
+  <div class="col-md-1">
+    <%= t('eMail') %>
+  </div>
+  <div class="col-md-3">
+    <%= @user.email %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <nav class="mid_menu">
+      <ul>
+        <li><%= link_to t('EditUser') + ' | ', edit_user_path(@user) %></li>
+        <li><%= link_to t('DelUser'), @user, method: :delete, data: { confirm: t('Confirmation') } %></li>
+      </ul>
+    </nav>
+  </div>
+</div>
 
 <hr/>
 <h2>Liste de clefs</h2>
 
 <table>
   <tr>
-    <th>Secteur</th>
-    <th>Cipher</th>
-    <th>Cryptogramme</th>
+    <th><%= t('Indentifier') %></th>
+    <th><%= t('Sector') %></th>
+    <th><%= t('Cipher') %></th>
+    <th><%= t('Hash') %></th>
   </tr>
   <%  @user.ciphers.each do |cipher| %>
   <tr>
+    <td class="col_narrow"><%= cipher.id %> </td>
     <td class="col_narrow"><%= cipher.secteur %> </td>
     <td class="col_medium"><%= cipher.clef %> </td>
     <td class="col_wide"><%= cipher.cipher_hash %> </td>
@@ -40,5 +69,5 @@
 <% end %>
 </table>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to t('EditUser'), edit_user_path(@user) %> |
+<%= link_to t('Back'), users_path %>
