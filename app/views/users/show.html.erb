@@ -1,9 +1,7 @@
 <h1><%= t('UsersCiphers') %></h1>
 
-<p id="notice"><%= notice %></p>
-
 <div class="row">
-  <div class="col-md-1">
+  <div class="col-md-1 field_name">
     <%= t('Name') %>
   </div>
   <div class="col-md-3">
@@ -12,7 +10,7 @@
 </div>
 
 <div class="row">
-  <div class="col-md-1">
+  <div class="col-md-1 field_name">
     <%= t('First name') %>
   </div>
   <div class="col-md-3">
@@ -21,7 +19,7 @@
 </div>
 
 <div class="row">
-  <div class="col-md-1">
+  <div class="col-md-1 field_name">
     <%= t('Section') %>
   </div>
   <div class="col-md-3">
@@ -30,7 +28,7 @@
 </div>
 
 <div class="row">
-  <div class="col-md-1">
+  <div class="col-md-1 field_name">
     <%= t('eMail') %>
   </div>
   <div class="col-md-3">
@@ -38,16 +36,10 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-3">
-    <nav class="mid_menu">
-      <ul>
-        <li><%= link_to t('EditUser') + ' | ', edit_user_path(@user) %></li>
-        <li><%= link_to t('DelUser'), @user, method: :delete, data: { confirm: t('Confirmation') } %></li>
-      </ul>
-    </nav>
-  </div>
-</div>
+<br/>
+<%= link_to t('EditUser') + ' | ', edit_user_path(@user) %>
+<%= link_to t('DelUser'), @user, method: :delete, data: { confirm: t('Confirmation') } %>
+
 
 <hr/>
 <h2>Liste de clefs</h2>

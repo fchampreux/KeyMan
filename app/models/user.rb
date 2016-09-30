@@ -26,7 +26,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 200 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
 =end
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, :on => :create
   
   #Relations
   has_many :ciphers, :inverse_of => :user, :dependent => :destroy

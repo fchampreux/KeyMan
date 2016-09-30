@@ -31,26 +31,36 @@
     <%= f.text_field :email %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-    Retype
-    <%= f.text_field :password_confirmation %>
-  </div>
+  <% if @user.new_record? %>
+    <div class="field">
+      <%= f.label :password %>
+      <%= f.text_field :password %>
+      Retype
+      <%= f.text_field :password_confirmation %>
+    </div>
+  <% end %>
+
+  <hr/>
+  <h2>Liste de clefs</h2>
   
-<hr/>
-<h2>Liste de clefs</h2>
-
-<table>
-  <%=  f.fields_for :ciphers do |cipher| %>
-  <tr>
-    <td><%= cipher.text_field :secteur %> </td>
-    <td><%= cipher.text_field :clef %> </td>
-  </tr>
-<% end %>
-</table>
-
+  <table>
+    <%=  f.nested_fields_for :ciphers do |cipher| %>
+    <tr>
+      <td><%= cipher.remove_nested_fields_link%></td>
+      <td><%= cipher.text_field :secteur %> </td>
+      <td><%= cipher.text_field :clef %> </td>
+    </tr>
+  <% end %>
+  </table>
+  
+  <%= f.add_nested_fields_link :ciphers %>
+  <br/><br/>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
+  
+
 <% end %>
+
+

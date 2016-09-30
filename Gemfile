@@ -6,6 +6,7 @@ gem 'bootstrap-sass', '~> 3.3'
 gem 'bootstrap-datepicker-rails', '~> 1.6'
 gem 'will_paginate', '~> 3.1'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
+gem 'nested_form_fields'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.6'
