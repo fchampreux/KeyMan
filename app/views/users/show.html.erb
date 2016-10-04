@@ -49,14 +49,12 @@
     <th><%= t('Indentifier') %></th>
     <th><%= t('Sector') %></th>
     <th><%= t('Cipher') %></th>
-    <th><%= t('Hash') %></th>
   </tr>
   <%  @user.ciphers.each do |cipher| %>
   <tr>
     <td class="col_narrow"><%= cipher.id %> </td>
     <td class="col_narrow"><%= cipher.secteur %> </td>
     <td class="col_medium"><%= cipher.clef %> </td>
-    <td class="col_wide"><%= cipher.cipher_hash %> </td>
   </tr>
 <% end %>
 </table>
