@@ -44,7 +44,12 @@
   <h2>Liste de clefs</h2>
   
   <table>
-    <%=  f.nested_fields_for :ciphers do |cipher| %>
+    <tr>
+      <th></th>
+      <th>Secteur</th>
+      <th>Cipher</th>
+    </tr>
+    <%=  f.nested_fields_for :ciphers, wrapper_tag: 'tr' do |cipher| %>
     <tr>
       <td><%= cipher.remove_nested_fields_link%></td>
       <td><%= cipher.text_field :secteur %> </td>

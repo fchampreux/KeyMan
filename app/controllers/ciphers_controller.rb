@@ -7,7 +7,7 @@ class CiphersController < ApplicationController
     puts @user.nom
     respond_to do |format|
       format.html 
-      format.json { render json: @cipher.clef }
+      format.json { render json: @cipher.cipher_hash }
     end
   end
 

@@ -12,6 +12,9 @@
 #
 
 class Cipher < ApplicationRecord
+  #Filters
+  before_save { self.cipher_hash = (BCrypt::Password.create(clef+secteur)).split(//).last(32).join }
+  
   #Validations
   validates :clef, :secteur, presence: true, length: {maximum: 100}
 
