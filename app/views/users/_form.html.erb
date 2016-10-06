@@ -51,15 +51,13 @@
     </tr>
 
     <%=  f.nested_fields_for :ciphers, wrapper_tag: 'tr' do |cipher| %>
-    <tr>
-      <td><%= cipher.remove_nested_fields_link%></td>
+      <td><%= cipher.remove_nested_fields_link {image_tag("remove.png")} %></td>
       <td><%= cipher.text_field :secteur %> </td>
-      <td><%= cipher.text_field :clef %> </td>
-    </tr>
+      <td><%= cipher.text_field :clef %> </td>    
   <% end %>
   </table>
   
-  <%= f.add_nested_fields_link :ciphers %>
+  <%= f.add_nested_fields_link :ciphers, image_tag("add.png") %> <%= t('New') %> 
   <br/><br/>
   
   <div class="actions">
