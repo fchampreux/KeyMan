@@ -11,24 +11,54 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :nom %>
-    <%= f.text_field :nom %>
-  </div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1">
 
-  <div class="field">
-    <%= f.label :prenom %>
-    <%= f.text_field :prenom %>
-  </div>
+      <div class="field">
+        <%= f.label :nom %>
+        <%= f.text_field :nom %>
+      </div>
 
-  <div class="field">
-    <%= f.label :section %>
-    <%= f.text_field :section %>
-  </div>
+      <div class="field">
+        <%= f.label :prenom %>
+        <%= f.text_field :prenom %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+      <div class="field">
+        <%= f.label :section %>
+        <%= f.text_field :section %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+    </div>
+    
+    <div class="col-md-5">
+      <div style="border: 1px solid grey; border-radius: 5px;">
+        <p>KEYMAN is a secured server for sharing symetrical ciphers between applications.</br>
+	It is currently under development.<br/>
+	Features :<br/>
+	<ul>
+	  <li> Manage users
+	  </li>
+	  <li> Manage several ciphers per user
+	  </li>
+	  <li> Automatically generate unique ciphers
+	  </li>
+	  <li> Serves autheticated JSON API through https protocol
+	  </li>
+	  <li> Allows crypting of ciphers with PKI
+	  </li>
+	</ul>
+	</p>
+      </div>
+      <br/>
+      <%= f.label :uploaded_file, t('PKI_file') %>
+      <%= f.file_field :uploaded_file %>  
+    </div>
+    
   </div>
 
   <% if @user.new_record? %>
@@ -42,7 +72,10 @@
 
   <hr/>
   <h2>Liste de clefs</h2>
-  
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1">
+      
   <table>
     <tr>
       <th></th>
@@ -63,7 +96,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-  
+  </div></div>
 
 <% end %>
 

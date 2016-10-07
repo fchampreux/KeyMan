@@ -38,4 +38,5 @@ en:
   Cipher:	"Cipher"
   Hash:		"Hash"
   Back:		"Back"
-  New:    "New"
+  New:          "New"
+  PKI_file:     "Please upload your Public Key (if available):"

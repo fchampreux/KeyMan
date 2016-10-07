@@ -1,2 +1,2 @@
 # KeyMan
-AES symetrical cipher manager in Ruby on Rails for several users
+KEYMAN is a secured server for sharing symetrical ciphers between applications. It is currently under development. Features :      Manage users     Manage several ciphers per user     Automatically generate unique ciphers     Serves autheticated JSON API through https protocol     Allows crypting of ciphers with PKI
