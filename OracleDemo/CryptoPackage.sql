@@ -1,13 +1,13 @@
 create or replace package cryptopackage as
     procedure set_pass(mytoken IN varchar2);
-    function pseudo(input_field IN varchar2) return varchar2;
+    function pseudo(input_field IN varchar2) return raw;
     function depseudo(input_field IN varchar2) return varchar2;
 end cryptopackage;
 
 create or replace package body cryptopackage as
 ---variables du package
     mytoken varchar2(100); --Token utilisé pour l'identification auprès du serveur de clefs
-    mypass varchar2(100);  --Cypher retourné par le serveur de clefs
+    mypass varchar2(32);  --Cypher retourné par le serveur de clefs
     
 ---procédure de lecture du cypher à initialiser à l'ouverture de session
     procedure set_pass(mytoken IN varchar2)
