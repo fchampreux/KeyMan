@@ -17,8 +17,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable, :zxcvbnable
-  
+         :recoverable, :rememberable, :trackable, :validatable
+
   #Constants
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -37,4 +37,7 @@ class User < ApplicationRecord
   has_many :ciphers, :inverse_of => :user, :dependent => :destroy
   accepts_nested_attributes_for :ciphers, :reject_if => :all_blank, :allow_destroy => true
 
+  #Devise modules
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable, :zxcvbnable
+  
 end
