@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+  
   devise_for :users
-  get 'sessions/new'
+  resources :requests
 
   root   to: 'users#index'
-  get    '/login',   to: 'sessions#new'
+=begin  
+  get    '/login',   to: 'devise/sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-
+=end
   get    '/api/:id/', to: 'ciphers#api'
   resources :users
 
