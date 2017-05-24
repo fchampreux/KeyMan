@@ -9,11 +9,11 @@
     <div class="col-md-3">
       <nav class="top_menu">
         <ul>
-          <% if logged_in? %>
+          <% if user_signed_in? %>
           <li> <%= t('User') %>: <%= current_user.nom %></li>
-          <li> | <%= link_to t('Sign_out'), logout_path, method: "delete" %></li>
+          <li> | <%= link_to t('Sign_out'), destroy_user_session_path, method: "delete" %></li>
           <% else %>
-          <li> <%= link_to t('Sign_in'), login_path %></li>
+          <li> <%= link_to t('Sign_in'), new_user_session_path %></li>
           <% end %>
           <li> | <%= link_to t('Help'), "#" %> </li>
         </ul>
