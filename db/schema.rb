@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322132501) do
+ActiveRecord::Schema.define(version: 20170607120134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,17 +24,24 @@ ActiveRecord::Schema.define(version: 20170322132501) do
     t.string   "cipher_hash"
   end
 
+  create_table "keys", force: :cascade do |t|
+    t.string   "secteur",    limit: 100, null: false
+    t.string   "clef",       limit: 100, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "user_id"
+    t.string   "key_hash"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "nom",                    limit: 100,               null: false
     t.string   "prenom",                 limit: 100,               null: false
     t.string   "section",                limit: 100,               null: false
     t.datetime "created_at",                                       null: false
     t.datetime "updated_at",                                       null: false
-    t.string   "password_digest"
     t.boolean  "is_admin"
     t.string   "pki",                    limit: 4000
     t.string   "email",                               default: "", null: false
-    t.string   "login",                               default: "", null: false
     t.string   "encrypted_password",                  default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -51,6 +58,8 @@ ActiveRecord::Schema.define(version: 20170322132501) do
     t.integer  "failed_attempts",                     default: 0,  null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.string   "user_name",              limit: 30
+    t.string   "language",               limit: 3
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree

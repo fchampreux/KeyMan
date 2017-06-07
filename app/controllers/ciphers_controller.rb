@@ -1,5 +1,5 @@
 class CiphersController < ApplicationController
-
+#before_action :authenticate_user!
   #API
   def api
     @cipher = Cipher.find(params[:id])

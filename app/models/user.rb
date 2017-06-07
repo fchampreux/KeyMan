@@ -2,15 +2,33 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  nom             :string(100)      not null
-#  prenom          :string(100)      not null
-#  section         :string(100)      not null
-#  email           :string(200)      not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  password_digest :string
-#  is_admin        :boolean
+#  id                     :integer          not null, primary key
+#  nom                    :string(100)      not null
+#  prenom                 :string(100)      not null
+#  section                :string(100)      not null
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  is_admin               :boolean
+#  pki                    :string(4000)
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :inet
+#  last_sign_in_ip        :inet
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
+#  failed_attempts        :integer          default(0), not null
+#  unlock_token           :string
+#  locked_at              :datetime
+#  user_name              :string(30)
+#  language               :string(3)
 #
 
 class User < ApplicationRecord
@@ -19,20 +37,13 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable, :zxcvbnable
-  
-  #Constants
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   #Filters
   before_save { self.email = email.downcase }
 
-=begin
   #Validations
-  validates :nom, :section, presence: true, length: {maximum: 100}
-  validates :prenom, presence: true, length: {maximum: 100}
-  validates :email, presence: true, length: { maximum: 200 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
-  validates :password, presence: true, length: { minimum: 6 }, :on => :create
-=end
+  validates :nom, :prenom, :section, presence: true, length: {maximum: 100}
+
   #Relations
   has_many :ciphers, :inverse_of => :user, :dependent => :destroy
   accepts_nested_attributes_for :ciphers, :reject_if => :all_blank, :allow_destroy => true
