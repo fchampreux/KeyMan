@@ -10,7 +10,7 @@
       <nav class="top_menu">
         <ul>
           <% if user_signed_in? %>
-          <li> <%= t('User') %>: <%= current_user.nom %></li>
+          <li> <%= t('User') %>: <%= link_to (current_user.prenom + ' ' + current_user.nom), edit_user_registration_path %></li>
           <li> | <%= link_to t('Sign_out'), destroy_user_session_path, method: "delete" %></li>
           <% else %>
           <li> <%= link_to t('Sign_in'), new_user_session_path %></li>

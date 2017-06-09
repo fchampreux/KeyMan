@@ -24,15 +24,6 @@ ActiveRecord::Schema.define(version: 20170607120134) do
     t.string   "cipher_hash"
   end
 
-  create_table "keys", force: :cascade do |t|
-    t.string   "secteur",    limit: 100, null: false
-    t.string   "clef",       limit: 100, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "user_id"
-    t.string   "key_hash"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "nom",                    limit: 100,               null: false
     t.string   "prenom",                 limit: 100,               null: false
