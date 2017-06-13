@@ -42,9 +42,10 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase }
 
   #Validations
-  validates :nom, :prenom, :section, presence: true, length: {maximum: 100}
+  validates :name, :first_name, :section, presence: true, length: {maximum: 100}
 
   #Relations
+  belongs_to :group
   has_many :ciphers, :inverse_of => :user, :dependent => :destroy
   accepts_nested_attributes_for :ciphers, :reject_if => :all_blank, :allow_destroy => true
 
