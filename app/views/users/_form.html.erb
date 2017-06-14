@@ -15,18 +15,18 @@
     <div class="col-md-4 col-md-offset-1">
 
       <div class="field">
-        <%= f.label :nom %>
-        <%= f.text_field :nom %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
       </div>
 
       <div class="field">
-        <%= f.label :prenom %>
-        <%= f.text_field :prenom %>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
       </div>
 
       <div class="field">
-        <%= f.label :section %>
-        <%= f.text_field :section %>
+        <%= f.label :group_id %>
+        <%= f.text_field :group_id %>
       </div>
 
       <div class="field">
@@ -85,7 +85,7 @@
 
     <%=  f.nested_fields_for :ciphers, wrapper_tag: 'tr' do |cipher| %>
       <td><%= cipher.remove_nested_fields_link {image_tag("remove.png")} %></td>
-      <td><%= cipher.text_field :secteur %> </td>
+      <td><%= cipher.text_field :sector %> </td>
       <td><%= cipher.text_field :clef %> </td>    
   <% end %>
   </table>

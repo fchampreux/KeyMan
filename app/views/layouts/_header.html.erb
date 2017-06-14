@@ -6,11 +6,11 @@
     <div class="col-md-5">
       <span><h1>Cryptographic Keys Manager</h1></span>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-5">
       <nav class="top_menu">
         <ul>
           <% if user_signed_in? %>
-          <li> <%= t('User') %>: <%= link_to (current_user.prenom + ' ' + current_user.nom), edit_user_registration_path %></li>
+          <li> <%= t('User') %>: <%= link_to (current_user.first_name + ' ' + current_user.name), edit_user_registration_path %></li>
           <li> | <%= link_to t('Sign_out'), destroy_user_session_path, method: "delete" %></li>
           <% else %>
           <li> <%= link_to t('Sign_in'), new_user_session_path %></li>

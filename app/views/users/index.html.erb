@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Nom</th>
-      <th>Prenom</th>
-      <th>Section</th>
-      <th>Email</th>
+      <th> <%= t('Name') %></th>
+      <th> <%= t('FirstName')%> </th>
+      <th> <%= t('Section')%> </th>
+      <th> <%= t('eMail')%> </th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,9 +16,9 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td class="col_narrow"><%= link_to user.nom, user %></td>
-        <td class="col_narrow"><%= user.prenom %></td>
-        <td class="col_narrow"><%= user.section %></td>
+        <td class="col_narrow"><%= link_to user.name, user %></td>
+        <td class="col_narrow"><%= user.first_name %></td>
+        <td class="col_narrow"><%= user.group.name %></td>
         <td class="col_narrow"><%= user.email %></td>
       </tr>
     <% end %>
@@ -27,4 +27,4 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to t('NewUser'), new_user_path %>

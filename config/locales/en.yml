@@ -39,4 +39,5 @@ en:
   Hash:		"Hash"
   Back:		"Back"
   New:          "New"
+  NewUser:	"New User"
   PKI_file:     "Please upload your Public Key (if available):"

@@ -3,9 +3,8 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  nom                    :string(100)      not null
-#  prenom                 :string(100)      not null
-#  section                :string(100)      not null
+#  name                   :string(100)      not null
+#  first_name             :string(100)      not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  is_admin               :boolean
@@ -29,6 +28,7 @@
 #  locked_at              :datetime
 #  user_name              :string(30)
 #  language               :string(3)
+#  group_id               :integer
 #
 
 class User < ApplicationRecord
@@ -42,7 +42,7 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase }
 
   #Validations
-  validates :name, :first_name, :section, presence: true, length: {maximum: 100}
+  validates :name, :first_name, :group_id, presence: true, length: {maximum: 100}
 
   #Relations
   belongs_to :group

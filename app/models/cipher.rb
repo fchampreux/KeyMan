@@ -3,7 +3,7 @@
 # Table name: ciphers
 #
 #  id          :integer          not null, primary key
-#  secteur     :string(100)      not null
+#  sector      :string(100)      not null
 #  clef        :string(100)      not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
