@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614115912) do
+ActiveRecord::Schema.define(version: 20170615042341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "ciphers", force: :cascade do |t|
-    t.string   "sector",      limit: 100, null: false
     t.string   "clef",        limit: 100, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "user_id"
     t.string   "cipher_hash"
+    t.integer  "group_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -30,15 +30,6 @@ ActiveRecord::Schema.define(version: 20170614115912) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "keys", force: :cascade do |t|
-    t.string   "secteur",    limit: 100, null: false
-    t.string   "clef",       limit: 100, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "user_id"
-    t.string   "key_hash"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,6 +59,8 @@ ActiveRecord::Schema.define(version: 20170614115912) do
     t.string   "user_name",              limit: 30
     t.string   "language",               limit: 3
     t.integer  "group_id"
+    t.string   "role",                   limit: 30
+    t.string   "section",                limit: 100
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
