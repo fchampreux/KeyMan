@@ -29,6 +29,8 @@
 #  user_name              :string(30)
 #  language               :string(3)
 #  group_id               :integer
+#  role                   :string(30)
+#  section                :string(100)
 #
 
 class User < ApplicationRecord
@@ -46,7 +48,5 @@ class User < ApplicationRecord
 
   #Relations
   belongs_to :group
-  has_many :ciphers, :inverse_of => :user, :dependent => :destroy
-  accepts_nested_attributes_for :ciphers, :reject_if => :all_blank, :allow_destroy => true
-
+  has_many :ciphers
 end

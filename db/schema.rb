@@ -10,18 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615042341) do
+ActiveRecord::Schema.define(version: 20170620043632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "ciphers", force: :cascade do |t|
-    t.string   "clef",        limit: 100, null: false
+    t.string   "key",         limit: 100, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "user_id"
     t.string   "cipher_hash"
     t.integer  "group_id"
+    t.text     "description"
+    t.string   "created_by",  limit: 100
+    t.string   "updated_by",  limit: 100
+    t.date     "valid_until"
   end
 
   create_table "groups", force: :cascade do |t|

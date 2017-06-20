@@ -70,28 +70,6 @@
       <%= f.text_field :password_confirmation %>
     </div>
   <% end %>
- 	
-  <div class="row">
-    <div class="col-md-4 col-md-offset-1">
-  <hr/>
-  <h2>Liste de clefs</h2>
-      
-  <table>
-    <tr>
-      <th></th>
-      <th>Secteur</th>
-      <th>Cipher</th>
-    </tr>
-
-    <%=  f.nested_fields_for :ciphers, wrapper_tag: 'tr' do |cipher| %>
-      <td><%= cipher.remove_nested_fields_link {image_tag("remove.png")} %></td>
-      <td><%= cipher.text_field :section %> </td>
-      <td><%= cipher.text_field :clef %> </td>    
-  <% end %>
-  </table>
-  
-  <%= f.add_nested_fields_link :ciphers, image_tag("add.png") %> <%= t('New') %> 
-  <br/><br/>
   
   <div class="actions">
     <%= f.submit %>

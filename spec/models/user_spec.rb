@@ -29,6 +29,8 @@
 #  user_name              :string(30)
 #  language               :string(3)
 #  group_id               :integer
+#  role                   :string(30)
+#  section                :string(100)
 #
 
 require 'rails_helper'
