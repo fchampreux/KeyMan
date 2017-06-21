@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620043632) do
+ActiveRecord::Schema.define(version: 20170621042419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,14 +26,17 @@ ActiveRecord::Schema.define(version: 20170620043632) do
     t.string   "created_by",  limit: 100
     t.string   "updated_by",  limit: 100
     t.date     "valid_until"
+    t.boolean  "is_active"
   end
 
   create_table "groups", force: :cascade do |t|
     t.string   "name"
     t.string   "code"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "created_by",  limit: 100
+    t.string   "updated_by",  limit: 100
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,6 +68,8 @@ ActiveRecord::Schema.define(version: 20170620043632) do
     t.integer  "group_id"
     t.string   "role",                   limit: 30
     t.string   "section",                limit: 100
+    t.string   "created_by",             limit: 100
+    t.string   "updated_by",             limit: 100
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
