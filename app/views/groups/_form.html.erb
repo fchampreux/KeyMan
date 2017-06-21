@@ -35,14 +35,18 @@
   <table>
     <tr>
       <th></th>
-      <th>Secteur</th>
-      <th>Cipher</th>
+      <th><%= t('User') %></th>
+      <th> | <%= t('Cipher') %></th>
+      <th> | <%= t('EndOfLife') %></th>
+      <th> | <%= t('Description') %></th>
     </tr>
 
     <%=  f.nested_fields_for :ciphers, wrapper_tag: 'tr' do |cipher| %>
-      <td><%= cipher.remove_nested_fields_link {image_tag("remove.png")} %></td>
-      <td><%= cipher.text_field :user %> </td>
-      <td><%= cipher.text_field :key %> </td>    
+      <td> <%= cipher.remove_nested_fields_link {image_tag("remove.png")} %></td>
+      <td> <%= cipher.text_field :user %> </td>
+      <td> <%= cipher.text_field :key %> </td>
+      <td> <%= cipher.text_field :valid_until %> </td>
+      <td> <%= cipher.text_area :description %> </td>
   <% end %>
   </table>
   

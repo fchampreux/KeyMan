@@ -18,10 +18,11 @@
 
 class Cipher < ApplicationRecord
   #Filters
-  before_save { self.cipher_hash = (BCrypt::Password.create(clef+secteur)).split(//).last(32).join }
+  before_save { self.cipher_hash = (BCrypt::Password.create(key+group_id+user_id)).split(//).last(32).join }
   
   #Validations
-  validates :clef, :secteur, presence: true, length: {maximum: 100}
+  validates :key, :valid_until, :group_id, :user_id, presence: true
+  validates :key, length: {maximum: 100}
 
   #Relations
   belongs_to :group
