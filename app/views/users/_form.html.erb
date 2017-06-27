@@ -26,7 +26,7 @@
 
       <div class="field">
         <%= f.label :group_id %>
-        <%= f.text_field :group_id %>
+        <%= f.collection_select :group_id, Group.all, :id, :name %> </td>
       </div>
 
       <div class="field">

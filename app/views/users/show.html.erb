@@ -37,27 +37,6 @@
 </div>
 
 <br/>
-<%= link_to t('EditUser') + ' | ', edit_user_path(@user) %>
-<%= link_to t('DelUser'), @user, method: :delete, data: { confirm: t('Confirmation') } %>
-
-
-<hr/>
-<h2>Liste de clefs</h2>
-
-<table>
-  <tr>
-    <th><%= t('Indentifier') %></th>
-    <th><%= t('Sector') %></th>
-    <th><%= t('Cipher') %></th>
-  </tr>
-  <%  @user.ciphers.each do |cipher| %>
-  <tr>
-    <td class="col_narrow"><%= cipher.id %> </td>
-    <td class="col_narrow"><%= cipher.secteur %> </td>
-    <td class="col_medium"><%= cipher.clef %> </td>
-  </tr>
-<% end %>
-</table>
 
 <%= link_to t('EditUser'), edit_user_path(@user) %> |
 <%= link_to t('Back'), users_path %>

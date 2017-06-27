@@ -12,6 +12,6 @@
 
 class Group < ApplicationRecord
   has_many :users
-  has_many :ciphers, :inverse_of => :user, :dependent => :destroy
+  has_many :ciphers, :inverse_of => :group, :dependent => :destroy
   accepts_nested_attributes_for :ciphers, :reject_if => :all_blank, :allow_destroy => true
 end

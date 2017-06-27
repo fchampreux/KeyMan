@@ -33,7 +33,7 @@ $linkBackground: #f0f0f0;
 
 $grayMediumLight: #eaeaea;
 $grayLight: #f0f0f0;
-$grayDarker: #c0c0c0;
+$grayDarker: #909090;
 $menu_color:rgb(33, 120, 103);
 $menu_bright:rgb(44, 160, 136);
 
@@ -60,6 +60,10 @@ textarea {
     margin-bottom: 10px;
   }
 }
+
+.left_border {
+  background-color: $grayDarker;
+  }
 
 /* typography */
 
@@ -174,7 +178,7 @@ pre {
 /* footer */
 
 footer {
-  padding: 20px 20px 20px 20px;
+  /*padding: 20px 20px 20px 20px;*/
   font-weight: bold;
   color: $footerFontColor;
   li {

@@ -18,7 +18,7 @@
 
 class Cipher < ApplicationRecord
   #Filters
-  before_save { self.cipher_hash = (BCrypt::Password.create(key+group_id+user_id)).split(//).last(32).join }
+  before_save { self.cipher_hash = (BCrypt::Password.create(key+group.name)).split(//).last(32).join }
   
   #Validations
   validates :key, :valid_until, :group_id, :user_id, presence: true

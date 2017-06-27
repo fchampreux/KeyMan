@@ -24,7 +24,6 @@
       <div class="tab-pane active" id="ciphers">
         <table class="table table-striped table-condensed">
           <tr align="left">
-            <th></th>
             <th><%= t('Cipher') %></th>
             <th><%= t('User') %></th>
             <th><%= t('EndOfLife') %></th>
@@ -35,7 +34,7 @@
           <% @group.ciphers.order("updated_at").each do |child_object| %>
           <tr align="left">
             <td valign="top"> <%=child_object.key%> </td>
-            <td valign="top"> <%=child_object.user%> </td>
+            <td valign="top"> <%=child_object.user.first_name + ' ' + child_object.user.name %> </td>
             <td valign="top"> <%=child_object.valid_until%> </td>
             <td valign="top"> <%=child_object.updated_by%> </td>
             <td valign="top"> <%=child_object.updated_at%> </td>

@@ -43,7 +43,7 @@
 
     <%=  f.nested_fields_for :ciphers, wrapper_tag: 'tr' do |cipher| %>
       <td> <%= cipher.remove_nested_fields_link {image_tag("remove.png")} %></td>
-      <td> <%= cipher.text_field :user %> </td>
+      <td> <%= cipher.collection_select :user_id, users_list(@group), :id, :name %> </td>
       <td> <%= cipher.text_field :key %> </td>
       <td> <%= cipher.text_field :valid_until %> </td>
       <td> <%= cipher.text_area :description %> </td>
