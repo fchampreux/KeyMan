@@ -61,10 +61,35 @@ textarea {
   }
 }
 
-.left_border {
-  background-color: $grayDarker;
+
+/* flex containers */
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  background-color: lightgrey;
   }
 
+.flex-container-v {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  background-color: lightgrey;
+  }
+
+.flex-item {
+  background-color: white;
+  margin: 10px;
+  }
+
+.flex-item-border {
+  background-color: blue;
+  margin: 10px;
+  width: 25%;
+  }
+  
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {

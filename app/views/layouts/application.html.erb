@@ -10,40 +10,50 @@
   </head>
 
   <body>
-    
-    <%= render "layouts/header" %>
-    
+
+  <div class="flex-container-v">
+    <div class="flex">
+      <div class="flex-container">
+	<div class="flex-border">
+	</div>
+	<div class="flex">
+	  <%= render "layouts/header" %>
+	</div>
+      </div>
+    <div class="flex">
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-  
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-3 left_border">
-        <ul class="" role="menu">
-          <li><%= link_to t('Groups'), groups_path %></li>
-          <li><%= link_to t('Users'), users_path %></li>
-          <li><%= link_to t('Parameters'), "#" %></li>
-        </ul>
+  <% end %>
+  </div>
+    <div class="flex">
+      <div class="flex-container">
+	<div class="flex-border">
+	  <div class="row">
+            <div class="col-md-3">
+              <ul class="" role="menu">
+                <li><%= link_to t('Groups'), groups_path %></li>
+                <li><%= link_to t('Users'), users_path %></li>
+                <li><%= link_to t('Parameters'), "#" %></li>
+              </ul>
+            </div>
+	  </div>
+	</div>
+	<div class="flex">
+	  <%= yield %>
+	</div>
       </div>
-      <div class="col-md-8 col-md-offset-1">
-
-        <%= yield %>
-             
-        <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>"><%= value %></div>
-        <% end %>
-        
+      <div class="flex">
+        <div class="flex-container">
+	  <div class="flex-border">
+            <%= render "layouts/footer" %>
+	  </div>
+        </div>
       </div>
     </div>
   </div>
-
-  
-    <%= render "layouts/footer" %>
-
   </body>
 
   <%= debug(params) if Rails.env.development? %>
