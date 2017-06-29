@@ -5,6 +5,7 @@
     <tr>
       <th> <%= t('Name') %></th>
       <th> <%= t('FirstName')%> </th>
+      <th> <%= t('Role')%> </th>
       <th> <%= t('Section')%> </th>
       <th> <%= t('eMail')%> </th>
     </tr>
@@ -15,6 +16,7 @@
       <tr>
         <td><%= link_to user.name, user %></td>
         <td><%= user.first_name %></td>
+        <td><%= user.role %></td>
         <td><%= user.group.name %></td>
         <td><%= user.email %></td>
       </tr>

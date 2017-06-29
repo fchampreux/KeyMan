@@ -4,7 +4,7 @@ module UsersHelper
         if user_signed_in? then current_user.is_admin else false end    
     end
     
-    def users_list(group)
-        User.where("group_id = ?", group)
+    def user_ciphers_list(cipher)
+        Cipher.where("user_id = ?", cipher)
     end
 end

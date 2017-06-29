@@ -1,17 +1,33 @@
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
+<h1><%= t('Group') %></h1>
 
-<p>
-  <strong>Code:</strong>
-  <%= @group.code %>
-</p>
+<div class="row">
+  <div class="col-md-1 field_name">
+    <%= t('Name') %> :
+  </div>
+  <div class="col-md-3">
+    <%= @group.name %>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @group.description %>
-</p>
+<div class="row">
+  <div class="col-md-1 field_name">
+    <%= t('Code') %> :
+  </div>
+  <div class="col-md-3">
+    <%= @group.code %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-1 field_name">
+    <%= t('Description') %> :
+  </div>
+  <div class="col-md-3">
+    <%= @group.description %>
+  </div>
+</div>
+
+<br/>
 
   <div class="tabbable">
     <ul class="nav nav-tabs">
