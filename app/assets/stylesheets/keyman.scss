@@ -66,9 +66,7 @@ textarea {
 .flex-container {
   display: -webkit-flex;
   display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  background-color: lightgrey;
+  background-color: white;
   }
 
 .flex-container-v {
@@ -76,29 +74,26 @@ textarea {
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
-  background-color: lightgrey;
+  background-color: white;
   }
 
 .flex-item {
   background-color: white;
-  margin: 10px;
   }
 
 .flex-item-border {
-  background-color: blue;
-  margin: 10px;
-  width: 25%;
+  background-color: lightgrey;
+  width: 20%;
   }
   
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
+  line-height: 2;
 }
 
 h1 {
   font-size: 3em;
-  letter-spacing: -2px;
   margin-bottom: 30px;
   margin-left: 30px;
   text-align: left;
@@ -133,7 +128,7 @@ pre {
   float: left;
   max-width:150%;
   max-height:150%;
-  padding:10px 5px 10px 10px;
+  padding:20px 20px 20px 20px;
   }
 }
 
@@ -155,12 +150,9 @@ pre {
 }
 
 .side_menu {
-  border: 2px solid;
-  border-radius: 25px;
   margin-left: 20px;
   font-weight: bold;
   color: $headerFontColor;
-    padding: 10px 10px 10px 10px;
   li {list-style-type: none;
   }
   a {
