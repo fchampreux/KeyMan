@@ -79,6 +79,7 @@ textarea {
 
 .flex-item {
   background-color: white;
+  width: 80%
   }
 
 .flex-item-border {
@@ -101,7 +102,6 @@ h1 {
 
 h2 {
   font-size: 1.7em;
-  letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: left;
   font-weight: normal;
@@ -183,49 +183,6 @@ pre {
   font-weight: bold;
   text-align: right;
 }
-
-.splash {
-  img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-/* footer */
-
-footer {
-  /*padding: 20px 20px 20px 20px;*/
-  font-weight: bold;
-  color: $footerFontColor;
-  li {
-    display:inline;
-  }
-  a {
-    color: $footerFontColor;
-    &:hover {
-      color: $footerFontHighlight;
-      background-color: $linkBackground;
-    }
-  }
-}
-
-
-
-/* tables */
-td.col_narrow {
-    width:10%;
-    }
-
-
-td.col_medium{
-    width:30%;
-    }
-
-
-td.col_wide{
-    width:50%;
-    }
     
 /*Navigation */
 .navbar-default {

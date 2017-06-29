@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <h1><%= t('Users') %></h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th> <%= t('Name') %></th>
@@ -15,10 +13,10 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td class="col_narrow"><%= link_to user.name, user %></td>
-        <td class="col_narrow"><%= user.first_name %></td>
-        <td class="col_narrow"><%= user.group.name %></td>
-        <td class="col_narrow"><%= user.email %></td>
+        <td><%= link_to user.name, user %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.group.name %></td>
+        <td><%= user.email %></td>
       </tr>
     <% end %>
   </tbody>

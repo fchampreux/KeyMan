@@ -19,9 +19,7 @@
 				<br/>
 			</div>
 			<div class="flex-item">
-				<h1>Cryptographic Keys Manager</h1>	
-			</div>
-			<div class="flex-item">
+			
 				<nav class="top_menu">
 					<ul>
 						<% if user_signed_in? %>
@@ -33,7 +31,9 @@
 						<li> | <%= link_to t('Help'), "#" %> </li>
 					</ul>
 				</nav>
+				<h1><%= t('Cryptographic Keys Manager') %></h1>
 			</div>
+			
 		</div>
 		  <div class="flex-item">
 				<% if notice %>
