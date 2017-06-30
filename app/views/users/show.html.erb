@@ -66,7 +66,7 @@
             <th><%= t('UpdatedAt') %></th>
           </tr>
           
-          <% user_ciphers_list(@user).order("updated_at").each do |child_object| %>
+          <% @user.ciphers.order("updated_at").each do |child_object| %>
           <tr align="left">
             <td valign="top"> <%=child_object.key%> </td>
             <td valign="top"> <%=child_object.description %> </td>

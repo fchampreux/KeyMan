@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :parameters
   resources :groups
   devise_for :users
   resources :requests
