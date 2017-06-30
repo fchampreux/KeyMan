@@ -6,13 +6,9 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th></th>
       <th>Description</th>
-      <th></th>
       <th>Code</th>
-      <th></th>
       <th>Value</th>
-      <th></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,13 +17,9 @@
     <% @parameters.each do |parameter| %>
       <tr>
         <td><%= parameter.name %></td>
-        <td><%= parameter. %></td>
         <td><%= parameter.description %></td>
-        <td><%= parameter. %></td>
         <td><%= parameter.code %></td>
-        <td><%= parameter. %></td>
         <td><%= parameter.value %></td>
-        <td><%= parameter. %></td>
         <td><%= link_to 'Show', parameter %></td>
         <td><%= link_to 'Edit', edit_parameter_path(parameter) %></td>
         <td><%= link_to 'Destroy', parameter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
