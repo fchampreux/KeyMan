@@ -1,28 +1,28 @@
-<h1><%= t('Group') %></h1>
+<h1> <%= t('Group') %> <%= @group.name %> </h1>
 
 <div class="row">
-  <div class="col-md-1 field_name">
+  <div class="col-md-2 field_name">
     <%= t('Name') %> :
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 field">
     <%= @group.name %>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-1 field_name">
+  <div class="col-md-2 field_name">
     <%= t('Code') %> :
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 field">
     <%= @group.code %>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-1 field_name">
+  <div class="col-md-2 field_name">
     <%= t('Description') %> :
   </div>
-  <div class="col-md-3">
+  <div class="col-md-3 field">
     <%= @group.description %>
   </div>
 </div>

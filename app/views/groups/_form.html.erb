@@ -1,4 +1,6 @@
 <%= form_for(group) do |f| %>
+<div class="row">
+  <div class="col-md-6">
   <% if group.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -10,40 +12,54 @@
       </ul>
     </div>
   <% end %>
+    </div>
+   </div>
 
-  <div class="field">
-    <%= f.label :name %>
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('Name') %> :
+  </div>
+  <div class="col-md-3 field">
     <%= f.text_field :name %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :code %>
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('Code') %> :
+  </div>
+  <div class="col-md-3 field">
     <%= f.text_field :code %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :description %>
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('Description') %> :
+  </div>
+  <div class="col-md-3 field">
     <%= f.text_area :description %>
   </div>
+ </div>
   
    	
   <div class="row">
     <div class="col-md-4 col-md-offset-1">
   <hr/>
-  <h2>Liste de clefs</h2>
+  <h2> <%= t('CiphersList') %> </h2>
       
-  <table>
+  <table class="table table-striped">
     <tr>
       <th></th>
       <th><%= t('User') %></th>
-      <th> | <%= t('Cipher') %></th>
-      <th> | <%= t('EndOfLife') %></th>
-      <th> | <%= t('Description') %></th>
+      <th><%= t('Cipher') %></th>
+      <th><%= t('ValidUntil') %></th>
+      <th><%= t('Description') %></th>
     </tr>
 
     <%=  f.nested_fields_for :ciphers, wrapper_tag: 'tr' do |cipher| %>
       <td> <%= cipher.remove_nested_fields_link {image_tag("remove.png")} %></td>
-      <td> <%= cipher.collection_select :user_id, users_list(@group), :id, :name %> </td>
+      <td> <%= cipher.collection_select :user_id, @group.users, :id, :name %> </td>
       <td> <%= cipher.text_field :key %> </td>
       <td> <%= cipher.text_field :valid_until %> </td>
       <td> <%= cipher.text_area :description %> </td>
@@ -51,10 +67,16 @@
   </table>
   
   <%= f.add_nested_fields_link :ciphers, image_tag("add.png") %> <%= t('New') %> 
-  <br/><br/>
 
-
+   </div>
+  </div>   	
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1">
   <div class="actions">
     <%= f.submit %>
   </div>
+
+  </div>
+ </div>
+  
 <% end %>
