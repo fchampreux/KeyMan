@@ -5,11 +5,11 @@ create or replace package cryptopackage as
 end cryptopackage;
 
 create or replace package body cryptopackage as
----variables du package
-    mytoken varchar2(100); --Token utilisé pour l'identification auprès du serveur de clefs
-    mypass varchar2(32);  --Cypher retourné par le serveur de clefs
+---variables of the package
+    mytoken varchar2(100); --Token used for identification with keys server (if required)
+    mypass varchar2(32);  --Cypher returned by keys server
     
----procédure de lecture du cypher à initialiser à l'ouverture de session
+---procedure to get the cypher --> initialise when opening the session
     procedure set_pass(mytoken IN varchar2)
     is
       l_http_request   UTL_HTTP.req;
@@ -22,7 +22,7 @@ create or replace package body cryptopackage as
       dbms_output.put_line(mypass);
     end set_pass;
     
----fonction de chiffrement utilisant le cypher mypass
+---encrypting fonction using the mypass cypher
     function pseudo(input_field IN varchar2)
     return raw
     is    
@@ -34,7 +34,7 @@ create or replace package body cryptopackage as
                            + DBMS_CRYPTO.CHAIN_CBC
                            + DBMS_CRYPTO.PAD_PKCS5;
     begin
-      key_bytes_raw := UTL_I18N.STRING_TO_RAW(mypass); --cypher mypass initialisé par la procédure set_pass
+      key_bytes_raw := UTL_I18N.STRING_TO_RAW(mypass); -- cypher mypass has been initialised by set_pass
       encrypted_raw := DBMS_CRYPTO.ENCRYPT
         (
            src => UTL_I18N.STRING_TO_RAW (input_field,  'AL32UTF8'),
@@ -44,7 +44,7 @@ create or replace package body cryptopackage as
       return  encrypted_raw;
     end pseudo;
     
----fonction de déchiffrement utilisant le cypher mypass
+---decrypting fonction using the mypass cypher
     function depseudo(input_field IN varchar2)
     return varchar2
     is
@@ -57,7 +57,7 @@ create or replace package body cryptopackage as
                            + DBMS_CRYPTO.CHAIN_CBC
                            + DBMS_CRYPTO.PAD_PKCS5;
     begin
-      key_bytes_raw := UTL_I18N.STRING_TO_RAW(mypass); --cypher mypass initialisé par la procédure set_pass
+      key_bytes_raw := UTL_I18N.STRING_TO_RAW(mypass); -- cypher mypass has been initialised by set_pass
       decrypted_raw := DBMS_CRYPTO.DECRYPT
         (
            src => (input_field),

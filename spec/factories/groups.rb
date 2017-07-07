@@ -12,8 +12,11 @@
 
 FactoryGirl.define do
   factory :group do
-    name "MyString"
-    code "MyString"
-    description "MyText"
+    id          0
+    name        "Test Group"
+    description "This is a test group used for unit testing"
+    code        "TEST"
+    
   end
+
 end
