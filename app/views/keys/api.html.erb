@@ -1,0 +1,24 @@
+<h1>API</h1>
+
+<p>
+  <strong><%=t('User')%>:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong><%=t('Group')%>:</strong>
+  <%= @key.group.name %>
+</p>
+
+<p>
+  <strong><%=t('Name')%></strong>
+  <%= @key.name %>
+</p>
+
+<p>
+  <strong><%=t('Hash')%></strong>
+  <%= @key.key_hash %>
+</p>
+
+
+<%= link_to 'Back', users_path %>

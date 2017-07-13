@@ -3,11 +3,14 @@
 # Table name: groups
 #
 #  id          :integer          not null, primary key
-#  name        :string
-#  code        :string
+#  name        :string(100)      not null
+#  code        :string(30)       not null
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  created_by  :string(100)
+#  updated_by  :string(100)
+#  is_active   :boolean          default(TRUE)
 #
 
 FactoryGirl.define do
