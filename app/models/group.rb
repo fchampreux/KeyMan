@@ -14,7 +14,17 @@
 #
 
 class Group < ApplicationRecord
-  has_many :users
-  has_many :ciphers, :inverse_of => :group, :dependent => :destroy
-  accepts_nested_attributes_for :ciphers, :reject_if => :all_blank, :allow_destroy => true
+#Filters
+  before_save {self.code.upcase!}
+#Record validations
+  validates :name, :code, :created_at, :created_by, :updated_at, :updated_by, presence: true
+  validates :name, length: { minimum: 5, maximum: 100 }
+  validates :code, length: { minimum: 3, maximum: 30 }
+  validates :name, uniqueness: { case_sensitive: false }
+  validates :code, uniqueness: { case_sensitive: false }
+#Record relations
+  has_many :users, :inverse_of => :group
+  has_many :keys, :inverse_of => :group
+  accepts_nested_attributes_for :keys, :reject_if => :all_blank, :allow_destroy => false
+  validates_associated :keys
 end

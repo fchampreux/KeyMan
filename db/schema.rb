@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170713104000) do
     t.date     "valid_until",                            null: false
     t.boolean  "is_active",               default: true
     t.index ["group_id"], name: "index_keys_on_group", using: :btree
+    t.index ["key_hash"], name: "index_keys_on_hash", unique: true, using: :btree
     t.index ["name", "group_id"], name: "index_keys_on_name", unique: true, using: :btree
     t.index ["user_id"], name: "index_keys_on_user", using: :btree
   end
@@ -69,9 +70,8 @@ ActiveRecord::Schema.define(version: 20170713104000) do
     t.string   "user_name",              limit: 30,                   null: false
     t.string   "language",               limit: 3,                    null: false
     t.integer  "group_id",                                            null: false
-    t.string   "role_id",                                             null: false
+    t.integer  "role_id",                                             null: false
     t.string   "section",                limit: 100
-    t.datetime "created_at",                                          null: false
     t.string   "email",                               default: "",    null: false
     t.string   "encrypted_password",                  default: "",    null: false
     t.string   "reset_password_token"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20170713104000) do
     t.integer  "failed_attempts",                     default: 0,     null: false
     t.string   "unlock_token"
     t.datetime "locked_at"
+    t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
     t.string   "created_by",             limit: 100
     t.string   "updated_by",             limit: 100

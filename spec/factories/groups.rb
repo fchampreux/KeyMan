@@ -19,7 +19,10 @@ FactoryGirl.define do
     name        "Test Group"
     description "This is a test group used for unit testing"
     code        "TEST"
-    
+    created_at  "2017.01.01"
+    updated_at  "2017.01.01"
+    created_by  "Factory"
+    updated_by  "Factory"
   end
 
 end

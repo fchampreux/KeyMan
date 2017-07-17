@@ -16,13 +16,14 @@
 
 FactoryGirl.define do
   factory :parameter do
-    name "MyString"
-     "MyString"
-    description "MyString"
-     "MyText"
-    code "MyString"
-     "MyString"
-    value "MyString"
-     "MyString"
+    id          0
+    name        "Test Parameter"
+    description "This is a test parameter used for unit testing"
+    code        "TEST"
+    value       "VALUE"
+    created_at  "2017.01.01"
+    updated_at  "2017.01.01"
+    created_by  "Factory"
+    updated_by  "Factory"
   end
 end

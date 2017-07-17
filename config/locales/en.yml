@@ -20,10 +20,31 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  #Layout
   User:         "User"
+  CKManager:    "Cryptographic Keys Manager"
+  
+  #Menus
+  Users:        "Users"
+  Groups:       "Groups"
+  Parameters:   "Parameters"
   Sign_out:     "Sign out"
   Sign_in:      "Sign in"
   Help:         "Help"
+  
+  #Shared fields
+  Name:         "Name"
+  Code:         "Code"
+  Description   "Description"
+  CreatedAt     "Created at"
+  UpatedAt      "Updated at"
+  CreatedBy     "Created by"
+  UpatedBy      "Updated by"
+  
+  #Group
+  Group:        "Group"
+  NewGroup:     "Create a new Group"
+  
   Connection:   "Connection"
   EditUser:	"Edit user"
   DelUser:	"Destroy user"

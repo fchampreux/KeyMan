@@ -45,12 +45,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable, :zxcvbnable
 
   #Filters
-  before_save { self.email = email.downcase }
+#  before_save { self.email = email.downcase }
+  before_save { self.email.downcase! }
+  before_save { self.user_name.downcase! }
 
   #Validations
-  validates :name, :first_name, :group_id, presence: true, length: {maximum: 100}
+  validates :name, :user_name, :first_name, :language, :role_id, :created_at, :created_by, :updated_at, :updated_by, presence: true
+  validates :name, length: { minimum: 5, maximum: 100 }
+  validates :user_name, length: { minimum: 5, maximum: 100 }
+  validates :user_name, uniqueness: {case_sensitive: false }
+  validates :group, presence: true
 
   #Relations
   belongs_to :group
-  has_many :ciphers
+  has_many :keys
 end

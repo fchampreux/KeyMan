@@ -39,9 +39,19 @@
 
 FactoryGirl.define do
   factory :user do
-    nom "MyString"
-    prenom "MyString"
-    section "MyString"
-    email "MyString"
+    name 'Tester'
+    first_name 'First'
+    language :en
+    email { Faker::Internet.email }
+    password "@1!2passwordX15!"
+    password_confirmation "@1!2passwordX15!"
+    confirmed_at Date.today
+    group_id '1'
+    role_id  '0'
+    user_name 'Testing'
+    created_at "2017.01.01"
+    updated_at "2017.01.01"
+    created_by "Factory"
+    updated_by "Factory"
   end
 end

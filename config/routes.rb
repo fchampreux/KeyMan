@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root   to: 'groups#index'
 
-  get    '/api/:id/', to: 'ciphers#api'
+  get    '/api/:id/', to: 'keys#api'
   resources :users
 
 end
