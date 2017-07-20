@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 2.6'
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'devise_zxcvbn'
+gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 5.x
+gem 'redcarpet'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

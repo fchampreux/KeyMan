@@ -57,6 +57,7 @@ class User < ApplicationRecord
   validates :group, presence: true
 
   #Relations
+  belongs_to :role, :class_name => "Parameter", :foreign_key => "role_id"	# helps retrieving the role name
   belongs_to :group
   has_many :keys
 end

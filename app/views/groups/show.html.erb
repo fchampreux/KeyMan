@@ -31,26 +31,28 @@
 
   <div class="tabbable">
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#ciphers" data-toggle="tab"> <%= t('Ciphers') %> </a></li>
-      <li><a href="#users" data-toggle="tab"> <%= t('Users') %> </a></li>
+      <li class="active"><a href="#keys" data-toggle="tab"> <%= t('KeysList') %> </a></li>
+      <li><a href="#users" data-toggle="tab"> <%= t('GroupUsers') %> </a></li>
     </ul>
     
     <div class="tab-content">
       
-      <div class="tab-pane active" id="ciphers">
+      <div class="tab-pane active" id="keys">
         <table class="table table-striped table-condensed">
           <tr align="left">
-            <th><%= t('Cipher') %></th>
+            <th><%= t('Key') %></th>
             <th><%= t('User') %></th>
-            <th><%= t('EndOfLife') %></th>
+            <th><%= t('ValidFrom') %></th>
+            <th><%= t('ValidTo') %></th>
             <th><%= t('UpdatedBy') %></th>
             <th><%= t('UpdatedAt') %></th>
           </tr>
           
-          <% @group.ciphers.order("updated_at").each do |child_object| %>
+          <% @group.keys.order("updated_at").each do |child_object| %>
           <tr align="left">
             <td valign="top"> <%=child_object.key%> </td>
             <td valign="top"> <%=child_object.user.first_name + ' ' + child_object.user.name %> </td>
+            <td valign="top"> <%=child_object.valid_from%> </td>
             <td valign="top"> <%=child_object.valid_until%> </td>
             <td valign="top"> <%=child_object.updated_by%> </td>
             <td valign="top"> <%=child_object.updated_at%> </td>
@@ -74,7 +76,7 @@
           <tr align="left">
             <td valign="top"> <%=child_object.first_name %> </td>
             <td valign="top"> <%=child_object.name %> </td>
-            <td valign="top"> <%=child_object.role %> </td>
+            <td valign="top"> <%=child_object.role.name %> </td>
             <td valign="top"> <%=child_object.section %> </td>
             <td valign="top"> <%=child_object.updated_by%> </td>
             <td valign="top"> <%=child_object.updated_at%> </td>
@@ -86,5 +88,5 @@
     </div>
   </div>
   
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<%= link_to t('EditGroup'), edit_group_path(@group) %> |
+<%= link_to t('Back'), groups_path %>

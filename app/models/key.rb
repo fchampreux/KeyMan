@@ -20,7 +20,7 @@
 class Key < ApplicationRecord
 #Filters
   #before_save { self.key_hash = (BCrypt::Password.create(name+group.code)).split(//).last(KEY_SIZE/8).join }
-  before_save { self.key_hash = (BCrypt::Password.create(name+group.code)).split(//).last(32).join }
+  before_save { self.key_hash = (BCrypt::Password.create(name+group.code+Time.now.to_i.to_s)).split(//).last(32).join }
   
 #Validations
   validates :name, :valid_from, :valid_until, :created_at, :created_by, :updated_at, :updated_by, presence: true

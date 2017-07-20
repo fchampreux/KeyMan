@@ -16,12 +16,12 @@
       <% end %>
     
       <div class="field">
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
-        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.label :password %>
         <% if @minimum_password_length %>
-          <br />
           <em><%= @minimum_password_length %> characters minimum</em>
         <% end %>
+        <%= f.password_field :password, autocomplete: "off" %></br>
+				<i>(leave blank if you don't want to change it)</i>
       </div>
     
       <div class="field">
@@ -30,8 +30,9 @@
       </div>
     
       <div class="field">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
-        <%= f.password_field :current_password, autocomplete: "off" %>
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password, autocomplete: "off" %></br>
+				<i>(we need your current password to confirm your changes)</i>
       </div>
     </div>
     
@@ -43,7 +44,11 @@
 				</div>  
 				<div class="col-md-4">
 					<%= f.label :group_id %>
-					<%= f.text_field :group_id %> <br/>
+					  <%= f.collection_select :group_id, Group.all, :id, :name %> 
+				</div>
+				<div class="col-md-4">
+					<%= f.label :role_id %>
+					  <%= f.collection_select :role_id, get_roles_list, :id, :name %> 
 				</div>
 			</div>
 			<br/>
@@ -58,7 +63,7 @@
 				</div>
 				<div class="col-md-4">
 					<%= f.label :language %> 
-					<%= f.select :language, [['fr',:fr],['it',:it],['de',:de]]%> <br/>
+					<%= f.select :language, [['fr',:fr],['it',:it],['de',:de],['en',:en]]%> <br/>
 				</div>
       </div>
     </div>
@@ -79,4 +84,4 @@
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to t('Back'), :back %>
