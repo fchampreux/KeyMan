@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 20170713104000) do
     t.string   "language",               limit: 3,                    null: false
     t.integer  "group_id",                                            null: false
     t.integer  "role_id",                                             null: false
-    t.string   "section",                limit: 100
+    t.string   "section",                limit: 100,  default: ""
     t.string   "email",                               default: "",    null: false
     t.string   "encrypted_password",                  default: "",    null: false
     t.string   "reset_password_token"

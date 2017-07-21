@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.6'
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'devise_zxcvbn'
-gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master' # For 5.x
+gem 'rails-i18n', git: 'https://github.com/svenfuchs/rails-i18n', branch: 'master' # For 5.x
 gem 'redcarpet'
 
 group :development, :test do

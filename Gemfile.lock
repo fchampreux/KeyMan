@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/svenfuchs/rails-i18n.git
+  remote: https://github.com/svenfuchs/rails-i18n
   revision: 719b6dba1c519edfb5dea0d1b80db77750d6f483
   branch: master
   specs:
