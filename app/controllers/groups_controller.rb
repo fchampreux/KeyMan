@@ -26,6 +26,8 @@ class GroupsController < ApplicationController
   # POST /groups.json
   def create
     @group = Group.new(group_params)
+    @group.created_by = current_user.user_name
+    @group.updated_by = current_user.user_name
 
     respond_to do |format|
       if @group.save
@@ -40,8 +42,9 @@ class GroupsController < ApplicationController
 
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
-  def update
-    respond_to do |format|
+def update
+  @group.updated_by = current_user.user_name
+   respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
         format.json { render :show, status: :ok, location: @group }
@@ -70,6 +73,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :code, :description, ciphers_attributes:[:user_id, :key, :description, :valid_until, :_destroy, :id])
+      params.require(:group).permit(:name, :code, :description, keys_attributes:[:user_id, :name, :description, :valid_from, :valid_until, :_destroy, :id])
     end
 end

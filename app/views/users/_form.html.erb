@@ -14,53 +14,68 @@
 		<% end %>
   </div>
 </div>
-<div class="row">
-  <div class="col-md-2 field_name">
-    <%= t('Name') %> :
-  </div>
-  <div class="col-md-3 field">
-    <%= f.text_field :name %>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-md-2 field_name">
-    <%= t('First name') %> :
+  <div class="row">
+    <div class="col-md-4">
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="field">
+        <%= f.label :new_password %>
+        <% if @minimum_password_length %>
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off" %></br>
+				<i>(leave blank if you don't want to change it)</i>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+    </div>
   </div>
-  <div class="col-md-3 field">
-    <%= f.text_field :first_name %>
-  </div>
-</div>
 
+  <hr/>
+  
+  <div class="row">
+     <div class="col-md-4">
+       <%= f.label :first_name %>
+       <%= f.text_field :first_name %>
+     </div>
+     <div class="col-md-4">
+       <%= f.label :name %>
+       <%= f.text_field :name %>
+     </div>
+     <div class="col-md-4">
+       <%= f.label :language %>
+       <%= f.select :language, [['fr',:fr],['it',:it],['de',:de],['en',:en]]%> <br/>
+     </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-md-4">
+      <%= f.label :user_name %>
+      <%= f.text_field :user_name %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :group_id %>
+      <%= f.collection_select :group_id, Group.all, :id, :name %>
+    </div>
+    <div class="col-md-4">
+      <%= f.label :role_id %>
+      <%= f.collection_select :role_id, get_roles_list, :id, :name %>
+    </div>
+  </div>
+<br/>
 <div class="row">
-  <div class="col-md-2 field_name">
-    <%= t('Section') %> :
-  </div>
-  <div class="col-md-3 field">
-    <%= f.collection_select :group_id, Group.all, :id, :name %> 
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-2 field_name">
-    <%= t('Role') %> :
-  </div>
-  <div class="col-md-3 field">
-    <%= f.text_field :role %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-2 field_name">
-    <%= t('eMail') %> :
-  </div>
-  <div class="col-md-3 field">
-    <%= f.text_field :email %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-2 col-md-offset-1">
+  <div class="col-md-2">
     <div class="actions">
       <%= f.submit %>
     </div>

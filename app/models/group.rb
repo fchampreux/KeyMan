@@ -17,7 +17,7 @@ class Group < ApplicationRecord
 #Filters
   before_save {self.code.upcase!}
 #Record validations
-  validates :name, :code, :created_at, :created_by, :updated_at, :updated_by, presence: true
+  validates :name, :code, :created_by, :updated_by, presence: true
   validates :name, length: { minimum: 5, maximum: 100 }
   validates :code, length: { minimum: 3, maximum: 30 }
   validates :name, uniqueness: { case_sensitive: false }
