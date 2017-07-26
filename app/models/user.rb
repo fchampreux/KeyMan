@@ -50,7 +50,7 @@ class User < ApplicationRecord
   before_save { self.user_name.downcase! }
 
   #Validations
-  validates :name, :user_name, :first_name, :language, :role_id, :created_at, :created_by, :updated_at, :updated_by, presence: true
+  validates :name, :user_name, :first_name, :language, :role_id, presence: true
   validates :name, length: { minimum: 5, maximum: 100 }
   validates :user_name, length: { minimum: 5, maximum: 100 }
   validates :user_name, uniqueness: {case_sensitive: false }
