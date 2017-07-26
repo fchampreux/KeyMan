@@ -9,7 +9,7 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
-smtp.rb
+/config/initializers/smtp.rb
 
 ## Environment normalization:
 /.bundle
