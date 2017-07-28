@@ -29,6 +29,13 @@
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
       </div>
     </div>
+    <div class="col-md-4">
+      <div class="field">
+        <%= f.label :section %>
+        <%= f.collection_select :section, get_sections_list, :section, :section%>
+      </div>
+    </div>
+
   </div>
 
   <hr/>

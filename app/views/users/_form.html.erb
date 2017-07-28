@@ -25,7 +25,7 @@
     <div class="col-md-4">
       <div class="field">
         <%= f.label :section %>
-        <%= f.text_field :section%>
+        <%= f.collection_select :section, get_sections_list, :name, :name%>
       </div>
     </div>
 	</div>
