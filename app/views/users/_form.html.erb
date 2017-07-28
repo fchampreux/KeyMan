@@ -22,28 +22,14 @@
         <%= f.email_field :email, autofocus: true %>
       </div>
     </div>
-    
     <div class="col-md-4">
       <div class="field">
-        <%= f.label :new_password %>
-        <% if @minimum_password_length %>
-          <em><%= @minimum_password_length %> characters minimum</em>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "off" %></br>
-				<i>(leave blank if you don't want to change it)</i>
+        <%= f.label :section %>
+        <%= f.text_field :section%>
       </div>
     </div>
-    
-    <div class="col-md-4">
-      <div class="field">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-    </div>
-  </div>
-
-  <hr/>
-  
+	</div>
+	
   <div class="row">
      <div class="col-md-4">
        <%= f.label :first_name %>

@@ -1,4 +1,5 @@
 class ParametersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_parameter, only: [:show, :edit, :update, :destroy]
 
   # GET /parameters
