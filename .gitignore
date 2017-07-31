@@ -9,7 +9,6 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
-/config/initializers/smtp.rb
 
 ## Environment normalization:
 /.bundle
@@ -19,3 +18,4 @@ pickle-email-*.html
 # Gemfile.lock, .ruby-version, .ruby-gemset
 Gemfile~
 
+config/initializers/smtp.rb
