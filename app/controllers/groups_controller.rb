@@ -28,6 +28,8 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.created_by = current_user.user_name
     @group.updated_by = current_user.user_name
+    @group.keys.each { |k| k.created_by = current_user.user_name }
+    @group.keys.each { |k| k.updated_by = current_user.user_name}
 
     respond_to do |format|
       if @group.save
@@ -44,6 +46,7 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1.json
 def update
   @group.updated_by = current_user.user_name
+    @group.keys.each { |k| k.updated_by = current_user.user_name}
    respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }

@@ -23,7 +23,7 @@ class Key < ApplicationRecord
   before_save { self.key_hash = (BCrypt::Password.create(name+group.code+Time.now.to_i.to_s)).split(//).last(32).join }
   
 #Validations
-  validates :name, :valid_from, :valid_until, :created_at, :created_by, :updated_at, :updated_by, presence: true
+  validates :name, :valid_from, :valid_until, presence: true
   validates :name, length: {minimum: 5, maximum: 100}
   validates :name, uniqueness: {scope: :group_id, case_sensitive: false }
   validates :key_hash, uniqueness: true

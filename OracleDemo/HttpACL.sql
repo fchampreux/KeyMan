@@ -1,3 +1,10 @@
+/* Grant access to UTL_HTTP and DBMS_CRYPTO libraries */
+CONN SYS/Manager11g@INFO as SYSDBA;
+
+GRANT EXECUTE ON DBMS_OUTPUT TO ODQ_DEV; /* Nice to have for displaying resuts in the console */
+GRANT EXECUTE ON UTL_HTTP TO ODQ_DEV;
+GRANT EXECUTE ON DBMS_CRYPTO TO ODQ_DEV;
+
 /* Create ACL for ODQ_DEV */
 BEGIN
   DBMS_NETWORK_ACL_ADMIN.create_acl (
@@ -15,7 +22,7 @@ END;
 BEGIN
   DBMS_NETWORK_ACL_ADMIN.add_privilege ( 
     acl         => 'http_acl_file.xml', 
-    principal   => 'ODQ_DEMO',
+    principal   => 'ODQ_DEV',
     is_grant    => TRUE, 
     privilege   => 'connect', 
     position    => NULL, 
@@ -53,12 +60,6 @@ SELECT acl,
        TO_CHAR(start_date, 'DD-MON-YYYY') AS start_date,
        TO_CHAR(end_date, 'DD-MON-YYYY') AS end_date
 FROM   dba_network_acl_privileges;
-
-/* Grant access to UTL_HTTP libraries */
-CONN SYS/Manager11g@INFO as SYSDBA;
-
-GRANT EXECUTE ON UTL_HTTP TO ODQ_DEV;
-GRANT EXECUTE ON DBMS_OUTPUT TO ODQ_DEV;
 
 CONN ODQ_DEV/ODQ_DEV@INFO;
 
