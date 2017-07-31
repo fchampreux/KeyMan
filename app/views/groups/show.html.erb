@@ -40,7 +40,8 @@
       <div class="tab-pane active" id="keys">
         <table class="table table-striped table-condensed">
           <tr align="left">
-            <th><%= t('Key') %></th>
+            <th><%= t('Id') %></th>
+            <th><%= t('Name') %></th>
             <th><%= t('User') %></th>
             <th><%= t('ValidFrom') %></th>
             <th><%= t('ValidTo') %></th>
@@ -50,6 +51,7 @@
           
           <% @group.keys.order("updated_at").each do |child_object| %>
           <tr align="left">
+            <td valign="top"> <%=child_object.id%> </td>
             <td valign="top"> <%=child_object.name%> </td>
             <td valign="top"> <%=child_object.user.first_name + ' ' + child_object.user.name %> </td>
             <td valign="top"> <%=child_object.valid_from%> </td>
