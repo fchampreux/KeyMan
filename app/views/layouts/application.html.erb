@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=t('CKManager')%></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+
+  <div class="flex-container-v">
+		<div class="flex-container">
+			<div class="flex-item-border logo">
+				<br/>
+				<%= image_tag("k.png", alt: "KeyMan") %>
+				<%= $VERSION %>
+				<br/>
+			</div>
+			<div class="flex-item">
+			
+				<nav class="top_menu">
+					<ul>
+						<% if user_signed_in? %>
+						<li> <%= t('User') %>: <%= link_to (current_user.first_name + ' ' + current_user.name), edit_user_registration_path %></li>
+						<li> | <%= link_to t('Sign_out'), destroy_user_session_path, method: "delete" %></li>
+						<% else %>
+						<li> <%= link_to t('Sign_in'), new_user_session_path %></li>
+						<% end %>
+						<li> | <%= link_to t('Help'), help_path("help-index") %> </li>
+					</ul>
+				</nav>
+				<h1><%= t('CKManager') %></h1>
+			</div>
+			
+		</div>
+		  <div class="flex-item">
+				<% if notice %>
+					<p class="alert alert-success"><%= notice %></p>
+				<% end %>
+				<% if alert %>
+					<p class="alert alert-danger"><%= alert %></p>
+					<% end %>
+			</div>
+				<div class="flex-container">
+					<div class="flex-item-border">
+						<div class="row">
+							<div class="col-md-2">
+								<h1>
+								K
+								E
+								Y
+								M
+								A
+								N
+								</h1>
+							</div>
+							<div class="col-md-3">
+								<ul class="side_menu" role="menu">
+									<br/><br/>
+									<li><%= link_to t('Groups'), groups_path %></li>
+									<li><%= link_to t('Users'), users_path %></li>
+									<li><%= link_to t('Parameters'), parameters_path %></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="flex-item">
+						<div class="container-fluid">
+							<%= yield %>							
+						</div>
+					</div>
+				</div>
+					<div class="flex-container">
+						<div class="flex-item-border top_menu center">				         
+							 <a href="http://opendataquality.com">  Powered by Open Data Quality</a>
+						</div>
+					</div>
+			  </div>
+
+  </body>
+
+  <%= debug(params) if Rails.env.development? %>
+  
+</html>

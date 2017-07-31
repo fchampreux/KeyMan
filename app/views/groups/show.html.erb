@@ -1,0 +1,94 @@
+<h1> <%= t('Group') %> <%= @group.name %> </h1>
+
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('Name') %> :
+  </div>
+  <div class="col-md-3 field">
+    <%= @group.name %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('Code') %> :
+  </div>
+  <div class="col-md-3 field">
+    <%= @group.code %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('Description') %> :
+  </div>
+  <div class="col-md-3 field">
+    <%= @group.description %>
+  </div>
+</div>
+
+<br/>
+
+  <div class="tabbable">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#keys" data-toggle="tab"> <%= t('KeysList') %> </a></li>
+      <li><a href="#users" data-toggle="tab"> <%= t('GroupUsers') %> </a></li>
+    </ul>
+    
+    <div class="tab-content">
+      
+      <div class="tab-pane active" id="keys">
+        <table class="table table-striped table-condensed">
+          <tr align="left">
+            <th><%= t('Id') %></th>
+            <th><%= t('Name') %></th>
+            <th><%= t('User') %></th>
+            <th><%= t('ValidFrom') %></th>
+            <th><%= t('ValidTo') %></th>
+            <th><%= t('UpdatedBy') %></th>
+            <th><%= t('UpdatedAt') %></th>
+          </tr>
+          
+          <% @group.keys.order("updated_at").each do |child_object| %>
+          <tr align="left">
+            <td valign="top"> <%=child_object.id%> </td>
+            <td valign="top"> <%=child_object.name%> </td>
+            <td valign="top"> <%=child_object.user.first_name + ' ' + child_object.user.name %> </td>
+            <td valign="top"> <%=child_object.valid_from%> </td>
+            <td valign="top"> <%=child_object.valid_until%> </td>
+            <td valign="top"> <%=child_object.updated_by%> </td>
+            <td valign="top"> <%=child_object.updated_at%> </td>
+          </tr>
+          <% end%>
+        </table>
+      </div>
+    
+      <div class="tab-pane" id="users">
+        <table class="table table-striped table-condensed">
+          <tr align="left">
+            <th><%= t('FirstName') %></th>
+            <th><%= t('Name') %></th>
+            <th><%= t('Role') %></th>
+            <th><%= t('Section') %></th>
+            <th><%= t('UpdatedBy') %></th>
+            <th><%= t('UpdatedAt') %></th>
+          </tr>
+          
+          <% @group.users.order("name").each do |child_object| %>
+          <tr align="left">
+            <td valign="top"> <%=child_object.first_name %> </td>
+            <td valign="top"> <%=child_object.name %> </td>
+            <td valign="top"> <%=child_object.role.name %> </td>
+            <td valign="top"> <%=child_object.section %> </td>
+            <td valign="top"> <%=child_object.updated_by%> </td>
+            <td valign="top"> <%=child_object.updated_at%> </td>
+          </tr>
+          <% end%>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+  
+<%= link_to t('EditGroup'), edit_group_path(@group) %> |
+<%= link_to t('Back'), groups_path %>

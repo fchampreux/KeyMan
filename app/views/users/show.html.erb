@@ -1,0 +1,83 @@
+<h1> <%= t('User') %> <%= @user.name %> </h1>
+
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('Name') %> :
+  </div>
+  <div class="col-md-3 field">
+    <%= @user.first_name %> <%= @user.name %>
+  </div>
+    <div class="col-md-2 field_name">
+    <%= t('Section') %> :
+  </div>
+  <div class="col-md-3 field">
+    <%= @user.section %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('Group') %> :
+  </div>
+  <div class="col-md-3 field">
+    <%= @user.group.name %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('Role') %> :
+  </div>
+  <div class="col-md-3 field">
+    <%= @user.role.name %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('eMail') %> :
+  </div>
+  <div class="col-md-3 field">
+    <%= @user.email %>
+  </div>
+</div>
+
+
+  <div class="tabbable">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#keys" data-toggle="tab"> <%= t('KeysList') %> </a></li>
+    </ul>
+    
+    <div class="tab-content">
+      
+      <div class="tab-pane active" id="keys">
+        <table class="table table-striped table-condensed">
+          <tr align="left">
+            <th><%= t('Key') %></th>
+            <th><%= t('Description') %></th>
+            <th><%= t('ValidFrom') %></th>
+            <th><%= t('ValidTo') %></th>
+            <th><%= t('Group') %></th>
+            <th><%= t('UpdatedBy') %></th>
+            <th><%= t('UpdatedAt') %></th>
+          </tr>
+          
+          <% @user.keys.order("updated_at").each do |child_object| %>
+          <tr align="left">
+            <td valign="top"> <%=child_object.key%> </td>
+            <td valign="top"> <%=child_object.description %> </td>
+            <td valign="top"> <%=child_object.valid_from%> </td>
+            <td valign="top"> <%=child_object.valid_until%> </td>
+            <td valign="top"> <%=child_object.group.name%> </td>
+            <td valign="top"> <%=child_object.updated_by%> </td>
+            <td valign="top"> <%=child_object.updated_at%> </td>
+          </tr>
+          <% end%>
+        </table>
+      </div>
+     
+    </div>
+  </div>
+
+<%= link_to t('EditUser'), edit_user_path(@user) %> |
+<%= link_to t('Back'), users_path %>
