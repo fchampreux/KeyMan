@@ -7,5 +7,3 @@
 * Automatically generate unique ciphers
 * Serves authenticated JSON API through https protocol
 * Allows crypting of ciphers with PKI (not available yet)
-
-Link : [Help for Logging](logging.md)
