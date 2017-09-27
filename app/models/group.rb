@@ -22,6 +22,8 @@ class Group < ApplicationRecord
   validates :code, length: { minimum: 3, maximum: 30 }
   validates :name, uniqueness: { case_sensitive: false }
   validates :code, uniqueness: { case_sensitive: false }
+  validates :created_by, :updated_by, presence: true
+  
 #Record relations
   has_many :users, :inverse_of => :group
   has_many :keys, :inverse_of => :group

@@ -28,7 +28,9 @@ class Key < ApplicationRecord
   validates :name, uniqueness: {scope: :group_id, case_sensitive: false }
   validates :key_hash, uniqueness: true
   validates :group, presence: true
-  validates :user, presence: true
+  validates :user, presence: true #should validate that the user exists within the group
+  validates :created_by, :updated_by, presence: true
+  
 
 #Relations
   belongs_to :group

@@ -27,9 +27,7 @@ RSpec.describe Group, type: :model do
   it {should validate_length_of(:code).is_at_most(30)}
   it {should validate_uniqueness_of(:name).case_insensitive}
   it {should validate_uniqueness_of(:code).case_insensitive}
-  it {should validate_presence_of(:created_at)}
   it {should validate_presence_of(:created_by)}
-  it {should validate_presence_of(:updated_at)}
   it {should validate_presence_of(:updated_by)}
 
   describe 'It can be created'
