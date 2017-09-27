@@ -55,6 +55,8 @@ class User < ApplicationRecord
   validates :user_name, length: { minimum: 5, maximum: 100 }
   validates :user_name, uniqueness: {case_sensitive: false }
   validates :group, presence: true
+  validates :created_by, :updated_by, presence: true
+  #When changing group, should validate that user has no key assigned in former group
 
   #Relations
   belongs_to :role, :class_name => "Parameter", :foreign_key => "role_id"	# helps retrieving the role name

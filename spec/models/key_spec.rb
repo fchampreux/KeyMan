@@ -27,9 +27,7 @@ RSpec.describe Key, type: :model do
   it {should validate_length_of(:name).is_at_most(100)}
   it {should validate_presence_of(:valid_from)}
   it {should validate_presence_of(:valid_until)}
-  it {should validate_presence_of(:created_at)}
   it {should validate_presence_of(:created_by)}
-  it {should validate_presence_of(:updated_at)}
   it {should validate_presence_of(:updated_by)}
   it {should validate_presence_of(:group)}
   it {should validate_presence_of(:user)}

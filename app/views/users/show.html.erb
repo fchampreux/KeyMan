@@ -64,7 +64,7 @@
           
           <% @user.keys.order("updated_at").each do |child_object| %>
           <tr align="left">
-            <td valign="top"> <%=child_object.key%> </td>
+            <td valign="top"> <%=child_object.name%> </td>
             <td valign="top"> <%=child_object.description %> </td>
             <td valign="top"> <%=child_object.valid_from%> </td>
             <td valign="top"> <%=child_object.valid_until%> </td>

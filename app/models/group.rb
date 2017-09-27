@@ -16,12 +16,14 @@
 class Group < ApplicationRecord
 #Filters
   before_save {self.code.upcase!}
+
 #Record validations
   validates :name, :code, :created_by, :updated_by, presence: true
   validates :name, length: { minimum: 5, maximum: 100 }
   validates :code, length: { minimum: 3, maximum: 30 }
   validates :name, uniqueness: { case_sensitive: false }
   validates :code, uniqueness: { case_sensitive: false }
+
 #Record relations
   has_many :users, :inverse_of => :group
   has_many :keys, :inverse_of => :group

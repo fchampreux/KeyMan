@@ -34,6 +34,18 @@ end
 
 if Group.count==0
 puts "Creating administration group"
+Group.create(code: 'ADMIN', name: 'Administration', description: 'Administrators group', created_by: 'RAKE', updated_by: 'RAKE')
+end
+
+if User.count==0
+puts "Creating administrator"
+User.create(name: 'Administrator', first_name: 'Keyman', is_admin: true, email: 'fred@nohoo.biz', user_name: 'Admin', language: ':en',
+            group_id: 1, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 0, created_by: 'RAKE', updated_by: 'RAKE')
+end
+
+=begin
+if Group.count==0
+puts "Creating administration group"
 Group.create(code: 'ADMIN', name: 'Administration', description: 'Administrators group', created_at: Date.today, updated_at: Date.today, created_by: 'RAKE', updated_by: 'RAKE')
 end
 
@@ -42,5 +54,5 @@ puts "Creating administrator"
 User.create(name: 'Administrator', first_name: 'Keyman', is_admin: true, email: 'fred@nohoo.biz', user_name: 'Admin', language: ':en',
             group_id: 1, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 0, created_at: Date.today, updated_at: Date.today, created_by: 'RAKE', updated_by: 'RAKE')
 end
-
+=end
 
