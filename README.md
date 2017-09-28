@@ -55,6 +55,7 @@ Ensuring data confidentiality requires to apply a few good practices.
 *Do not store data and keys on the same place*
 
 *Create separate roles*
+
 Keyman administrator
 
 	The administrator manages groups and users. Nothing else.
@@ -86,7 +87,7 @@ Keyman is available (or it will be) in several ways:
  * Run rake db:init
  * Run rake db:migrate
  * Run rake db:seed
- *  Open administrator email and confirm the registration
+ * Open administrator's email and confirm the registration
  * Start using the application
  
  **Better ideas or willing to contribute?**
