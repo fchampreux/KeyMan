@@ -1,6 +1,6 @@
 **KEYMAN** is a secured server for sharing symetrical ciphers between applications.
 
-It was design to support your organisation in implementing "by design" the General Data Protection Regulation (GDPR). 
+It was designed to support your organisation in implementing "by design" the General Data Protection Regulation (GDPR). 
 
 *Features:*
 
