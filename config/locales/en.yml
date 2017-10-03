@@ -23,6 +23,9 @@ en:
   #Layout
   User:         "User"
   CKManager:    "Cryptographic Keys Manager"
+  Token:        "Token"
+  Count:        "Count"
+  Validity:     "Validity"
   
   #Menus
   Users:        "Users"

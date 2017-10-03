@@ -31,6 +31,13 @@
 						<% end %>
 						<li> | <%= link_to t('Help'), help_path("help-index") %> </li>
 					</ul>
+						<% if user_signed_in? %>
+					<ul>
+						<li><%= t('Token') %>: <%= current_user.api_token %> </li>
+						<li><%= t('Count') %>: <%= current_user.api_token_count %> </li>
+						<li><%= t('Validity') %>: <%= current_user.api_token_validity %> </li>
+					</ul>
+						<% end %>
 				</nav>
 				<h1><%= t('CKManager') %></h1>
 			</div>

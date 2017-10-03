@@ -19,10 +19,13 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+fr:
   #Layout
   User:         "Utilisateur"
   CKManager:    "Trousseau de clefs de chiffrement"
+  Token:        "Token"
+  Count:        "Compte"
+  Validity:     "Validité"
   
   #Menus
   Users:        "Utilisateurs"
