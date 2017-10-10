@@ -55,6 +55,22 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+    def set_token
+    @user.updated_by = current_user.user_name
+    @user.api_token = (BCrypt::Password.create(current_user.user_name+Time.now.to_i.to_s))
+
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: 'Token was successfully renewed.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
   # DELETE /users/1
   # DELETE /users/1.json
@@ -74,6 +90,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :first_name, :user_name, :group_id, :role_id, :email, :language, :section)
+      params.require(:user).permit(:name, :first_name, :user_name, :group_id, :role_id, :email, :language, :section, :api_token_count, :api_token_validity)
     end
 end
