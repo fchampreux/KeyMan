@@ -25,6 +25,7 @@
 					<ul>
 						<% if user_signed_in? %>
 						<li> <%= t('User') %>: <%= link_to (current_user.first_name + ' ' + current_user.name), edit_user_registration_path %></li>
+						<li> | <%= t('Token') %>: <%= current_user.api_token %> </li>
 						<li> | <%= link_to t('Sign_out'), destroy_user_session_path, method: "delete" %></li>
 						<% else %>
 						<li> <%= link_to t('Sign_in'), new_user_session_path %></li>
@@ -33,7 +34,7 @@
 					</ul>
 						<% if user_signed_in? %>
 							<!-- token generation form -->
-							<%= form_for(current_user) do |f| %>
+							<%= form_for current_user, :url => {:controller =>"users_controllers", :action => "set_token", method: "post"} do |f| %>
 										<% if current_user.errors.any? %>
 											<div id="error_explanation">
 												<h2><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -46,10 +47,9 @@
 											</div>
 										<% end %>
 								<ul>
-									<li><%= t('Count') %>: <%= f.text_field :api_token_count %> </li>
-									<li><%= t('Validity') %>: <%=  f.text_field :api_token_validity %> </li>
-									<li><%= t('Token') %>: <%= current_user.api_token %> </li>
-									<li class="actions" ><%= f.submit %></li>
+									<li><%= t('Count') %>: <%= f.text_field :api_token_count, :size => "4" %> </li>
+									<li><%= t('Validity') %>: <%=  f.text_field :api_token_validity, :size => "10" %> </li>
+									<li class="actions" ><%= f.submit "Renew" %></li>
 								</ul>
 							<% end %>
 						<% end %>
