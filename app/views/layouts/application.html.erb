@@ -20,21 +20,23 @@
 				<br/>
 			</div>
 			<div class="flex-item">
-			
+			    <div class="flex-item">
 				<nav class="top_menu">
-					<ul>
+				    <ul>
 						<% if user_signed_in? %>
 						<li> <%= t('User') %>: <%= link_to (current_user.first_name + ' ' + current_user.name), edit_user_registration_path %></li>
-						<li> | <%= t('Token') %>: <%= current_user.api_token %> </li>
 						<li> | <%= link_to t('Sign_out'), destroy_user_session_path, method: "delete" %></li>
 						<% else %>
 						<li> <%= link_to t('Sign_in'), new_user_session_path %></li>
 						<% end %>
 						<li> | <%= link_to t('Help'), help_path("help-index") %> </li>
-					</ul>
-						<% if user_signed_in? %>
+				    </ul>
+				    </nav>
+				    <div id="renew_token">
+				    
+			      <% if user_signed_in? %>
 							<!-- token generation form -->
-							<%= form_for current_user, :url => {:controller =>"users_controller", :action => "set_token", :method => "patch"} do |f| %>
+							<%= form_for(current_user, url: set_token_user_path(current_user), method: :patch) do |f| %>
 										<% if current_user.errors.any? %>
 											<div id="error_explanation">
 												<h2><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -45,15 +47,18 @@
 												<% end %>
 												</ul>
 											</div>
-										<% end %>
+											<% end %>
+											<ul>						<li><%= t('Token') %>: <%= current_user.api_token %> </li>
+</ul>
 								<ul>
 									<li><%= t('Count') %>: <%= f.text_field :api_token_count, :size => "4" %> </li>
-									<li><%= t('Validity') %>: <%=  f.text_field :api_token_validity, :size => "10" %> </li>
+									<li><%= t('Validity') %>: <%= f.date_field :api_token_validity, :size => "10" %> </li>
 									<li class="actions" ><%= f.submit "Renew" %></li>
 								</ul>
 							<% end %>
-						<% end %>
-				</nav>
+							<% end %>
+							</div>
+			    </div>
 				<h1><%= t('CKManager') %></h1>
 			</div>
 			
