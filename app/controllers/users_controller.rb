@@ -20,14 +20,13 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user.updated_by = current_user.user_name
   end
 
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
-    @user.created_by = current_user.user_name
-    @user.updated_by = current_user.user_name
 
     respond_to do |format|
       if @user.save

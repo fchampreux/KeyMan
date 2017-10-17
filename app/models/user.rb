@@ -52,6 +52,7 @@ class User < ApplicationRecord
 #  before_save { self.email = email.downcase }
   before_save { self.email.downcase! }
   before_save { self.user_name.downcase! }
+  before_create {self.created_by = created_by || 'Registration'}
 
   #Validations
   validates :name, :user_name, :first_name, :language, :role_id, presence: true
@@ -59,7 +60,7 @@ class User < ApplicationRecord
   validates :user_name, length: { minimum: 5, maximum: 100 }
   validates :user_name, uniqueness: {case_sensitive: false }
   validates :group, presence: true
-  validates :created_by, :updated_by, presence: true
+  #validates :created_by, :updated_by, presence: true
   #When changing group, should validate that user has no key assigned in former group
 
   #Relations

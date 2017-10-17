@@ -24,7 +24,7 @@ Parameter.create(id: 20, name: 'Token default count', description: 'Default valu
 Parameter.create(id: 999, name: '(none)', description: 'These parameters do not belong with a list', code: 'NONE', value: 'NONE', list_name: 'All lists', created_by: 'RAKE', updated_by: 'RAKE')
 Parameter.create(id: 1000, name: 'Roles list', description: 'Lists the Roles in the application for security purposes', code: 'ROLES', value: 'Roles', list_name: 'All lists', created_by: 'RAKE', updated_by: 'RAKE')
 Parameter.create(id: 1001, name: 'Key Sizes list', description: 'Lists the available sizes for cryptographic keys', code: 'KEY_SIZES', value: 'Key Sizes', list_name: 'All lists', created_by: 'RAKE', updated_by: 'RAKE')
-Parameter.create(id: 1002, name: 'Sections', description: 'Lists the sections users belong to', code: 'SECTIONS', value: 'Sections', list_name: 'All lists', created_by: 'RAKE', updated_by: 'RAKE')
+Parameter.create(id: 1002, name: 'Sections list', description: 'Lists the sections users belong to', code: 'SECTIONS', value: 'Sections', list_name: 'All lists', created_by: 'RAKE', updated_by: 'RAKE')
 #Parameter.create(id: 100, name: 'Démographie et migration', description: 'Statistiques liées à la démographie et aux migrations', code: 'BB/DEM', value: 'BB/DEM', list_name: 'Sections', created_by: 'RAKE', updated_by: 'RAKE')
 #Parameter.create(id: 101, name: 'Population', description: 'Statistiques liées à la population', code: 'BB/POP', value: 'BB/POP', list_name: 'Sections', created_by: 'RAKE', updated_by: 'RAKE')
 Parameter.create(id: 100, name: 'Sales & Marketing', description: 'Supports processes related to Customers sales and promotion', code: 'SALES', value: 'SALES', list_name: 'Sections', created_by: 'RAKE', updated_by: 'RAKE')
