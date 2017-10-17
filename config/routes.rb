@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :groups
   devise_for :users
   resources :requests
-  resources :users, :only=>[:edit, :update, :show, :index]
+  resources :users, :only=>[:edit, :update, :show, :index, :set_token] do
+    patch 'set_token', on: :member
+  end
   
   get    '/api/:id/', to: 'keys#api'
 
