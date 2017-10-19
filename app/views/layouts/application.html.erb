@@ -23,7 +23,8 @@
 			    <div class="flex-item">
 				<nav class="top_menu">
 				    <ul>
-						<% if user_signed_in? %>
+				      <% if user_signed_in? %>
+				      <li> <button id="key_toggle">K</button> </li>
 						<li> <%= t('User') %>: <%= link_to (current_user.first_name + ' ' + current_user.name), edit_user_registration_path %></li>
 						<li> | <%= link_to t('Sign_out'), destroy_user_session_path, method: "delete" %></li>
 						<% else %>
@@ -32,7 +33,7 @@
 						<li> | <%= link_to t('Help'), help_path("help-index") %> </li>
 				    </ul>
 				    </nav>
-				    <div id="renew_token">
+				    <div id="renew_token" class="top_menu">
 				    
 			      <% if user_signed_in? %>
 							<!-- token generation form -->
@@ -48,9 +49,8 @@
 												</ul>
 											</div>
 											<% end %>
-											<ul>						<li><%= t('Token') %>: <%= current_user.api_token %> </li>
-</ul>
-								<ul>
+											<ul>
+											  <li><%= t('Token') %>: <%= current_user.api_token %> </li>
 									<li><%= t('Count') %>: <%= f.text_field :api_token_count, :size => "4" %> </li>
 									<li><%= t('Validity') %>: <%= f.date_field :api_token_validity, :size => "10" %> </li>
 									<li class="actions" ><%= f.submit "Renew" %></li>
@@ -100,12 +100,22 @@
 						</div>
 					</div>
 				</div>
-					<div class="flex-container">
-						<div class="flex-item-border top_menu center">				         
-							 <a href="http://opendataquality.com">  Powered by Open Data Quality</a>
-						</div>
-					</div>
+				<div class="flex-item">
+					<div class="flex-item">
+
+					  <a class="top_menu" href="http://opendataquality.com">Open Data Quality</a>
+					  				<div class="flex-item">
+
 			  </div>
+			  </div>
+			  </div>
+
+      <script> $(function() {
+      $( "#key_toggle" ).click(function() {
+        $( "#renew_token" ).toggle();
+        });
+      });
+    </script>
 
   </body>
 

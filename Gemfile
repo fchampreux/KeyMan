@@ -7,6 +7,8 @@ gem 'bootstrap-datepicker-rails', '~> 1.6'
 gem 'will_paginate', '~> 3.1'
 gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'nested_form_fields'
+gem 'cancancan', '~> 2.0'
+gem 'simple_token_authentication', '~> 1.0'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.6'

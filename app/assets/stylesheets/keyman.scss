@@ -80,7 +80,7 @@ textarea {
 .flex-item {
   background-color: white;
   margin-left: 10px;
-  width: 80%
+  width: 100%
   }
 
 .flex-item-border {
@@ -170,8 +170,6 @@ pre {
   }
 }
 
-
-
 /* body */
 
 .mid_menu {
@@ -236,4 +234,10 @@ pre {
         background-color: $bgHighlight; }}}
 }
 
-
+#renew_token {
+    display: none;
+    background-color: $grayLight;
+    border-style: solid;
+    border-color: $colHighlight;
+    border-radius: 5px;
+}
