@@ -20,102 +20,100 @@
 				<br/>
 			</div>
 			<div class="flex-item">
-			    <div class="flex-item">
-				<nav class="top_menu">
-				    <ul>
-				      <% if user_signed_in? %>
-				      <li> <button id="key_toggle">K</button> </li>
-						<li> <%= t('User') %>: <%= link_to (current_user.first_name + ' ' + current_user.name), edit_user_registration_path %></li>
-						<li> | <%= link_to t('Sign_out'), destroy_user_session_path, method: "delete" %></li>
-						<% else %>
-						<li> <%= link_to t('Sign_in'), new_user_session_path %></li>
-						<% end %>
-						<li> | <%= link_to t('Help'), help_path("help-index") %> </li>
-				    </ul>
-				    </nav>
-				    <div id="renew_token" class="top_menu">
-				    
-			      <% if user_signed_in? %>
-							<!-- token generation form -->
-							<%= form_for(current_user, url: set_token_user_path(current_user), method: :patch) do |f| %>
-										<% if current_user.errors.any? %>
-											<div id="error_explanation">
-												<h2><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h2>
-									
-												<ul>
-												<% current_user.errors.full_messages.each do |message| %>
-													<li><%= message %></li>
-												<% end %>
-												</ul>
-											</div>
-											<% end %>
-											<ul>
-											  <li><%= t('Token') %>: <%= current_user.api_token %> </li>
-									<li><%= t('Count') %>: <%= f.text_field :api_token_count, :size => "4" %> </li>
-									<li><%= t('Validity') %>: <%= f.date_field :api_token_validity, :size => "10" %> </li>
-									<li class="actions" ><%= f.submit "Renew" %></li>
-								</ul>
-							<% end %>
-							<% end %>
-							</div>
-			    </div>
-				<h1><%= t('CKManager') %></h1>
-			</div>
-			
-		</div>
-		  <div class="flex-item">
-				<% if notice %>
-					<p class="alert alert-success"><%= notice %></p>
-				<% end %>
-				<% if alert %>
-					<p class="alert alert-danger"><%= alert %></p>
-					<% end %>
-			</div>
-				<div class="flex-container">
-					<div class="flex-item-border">
-						<div class="row">
-							<div class="col-md-2">
-								<h1>
-								K
-								E
-								Y
-								M
-								A
-								N
-								</h1>
-							</div>
-							<div class="col-md-3">
-								<ul class="side_menu" role="menu">
-									<br/><br/>
-									<li><%= link_to t('Groups'), groups_path %></li>
-									<li><%= link_to t('Users'), users_path %></li>
-									<li><%= link_to t('Parameters'), parameters_path %></li>
-								</ul>
-							</div>
-						</div>
+				<div class="col-md-6">
+					<h1><%= t('CKManager') %></h1>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<nav class="top_menu">
+							<ul>
+								<% if user_signed_in? %>
+									<li> <button id="key_toggle">K</button> </li>
+									<li> <%= t('User') %>: <%= link_to (current_user.first_name + ' ' + current_user.name), edit_user_registration_path %></li>
+									<li> | <%= link_to t('Sign_out'), destroy_user_session_path, method: "delete" %></li>
+								<% else %>
+									<li> <%= link_to t('Sign_in'), new_user_session_path %></li>
+								<% end %>
+								<li> | <%= link_to t('Help'), help_path("help-index") %> </li>
+							</ul>
+						</nav>
 					</div>
-					<div class="flex-item">
-						<div class="container-fluid">
-							<%= yield %>							
+					<div class="row">
+						<div id="renew_token" class="top_menu">
+							<% if user_signed_in? %>
+								<!-- token generation form -->
+								<%= form_for(current_user, url: set_token_user_path(current_user), method: :patch) do |f| %>
+									<% if current_user.errors.any? %>
+										<div id="error_explanation">
+										<h2><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h2>
+											<ul>
+											<% current_user.errors.full_messages.each do |message| %>
+												<li><%= message %></li>
+											<% end %>
+											</ul>
+										</div>
+									<% end %>
+									<ul>
+										<li><%= t('Token') %>: <%= current_user.api_token %> </li>
+										<li><%= t('Count') %>: <%= f.text_field :api_token_count, :size => "4" %> </li>
+										<li><%= t('Validity') %>: <%= f.date_field :api_token_validity, :size => "10" %> </li>
+										<li class="actions" ><%= f.submit "Renew" %></li>
+									</ul>
+								<% end %>
+							<% end %>
 						</div>
 					</div>
 				</div>
-				<div class="flex-item">
-					<div class="flex-item">
+			</div>
+		</div>
+		<div class="flex-container">
+			<div class="flex-item-border">
+				<div class="row">
+					<div class="col-md-2">
+						<h1>
+						K
+						E
+						Y
+						M
+						A
+						N
+						</h1>
+					</div>
+					<div class="col-md-3">
+						<ul class="side_menu" role="menu">
+							<br/><br/>
+							<li><%= link_to t('Groups'), groups_path %></li>
+							<li><%= link_to t('Users'), users_path %></li>
+							<li><%= link_to t('Parameters'), parameters_path %></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="flex-item">
+				<div class="container-fluid">
+					<%= yield %>							
+				</div>
+			</div>
+		</div>
+		<div class="flex-item">
+			<% if notice %>
+				<p class="alert alert-success"><%= notice %></p>
+			<% end %>
+			<% if alert %>
+				<p class="alert alert-danger"><%= alert %></p>
+			<% end %>
+		</div>
+		<div class="flex-item">
+		  <a class="top_menu" href="http://opendataquality.com">Open Data Quality</a>
+		</div>
+	</div>
 
-					  <a class="top_menu" href="http://opendataquality.com">Open Data Quality</a>
-					  				<div class="flex-item">
-
-			  </div>
-			  </div>
-			  </div>
-
-      <script> $(function() {
-      $( "#key_toggle" ).click(function() {
-        $( "#renew_token" ).toggle();
-        });
-      });
-    </script>
+	<script> $(function() {
+		$( "#key_toggle" ).click(function() {
+			$( "#renew_token" ).toggle();
+			});
+		});
+	</script>
 
   </body>
 
