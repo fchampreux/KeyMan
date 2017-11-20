@@ -1,5 +1,6 @@
 class KeysController < ApplicationController
-#before_action :authenticate_user!
+ before_action :authenticate_user!
+ 
   #API
   def api
     @key = Key.find(params[:id])

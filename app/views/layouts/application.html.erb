@@ -54,7 +54,7 @@
 										</div>
 									<% end %>
 									<ul>
-										<li><%= t('Token') %>: <%= f.text_field :api_token, :size => "16", readonly: true %> </li>
+										<li><%= t('Token') %>: <%= f.text_field :authentication_token, :size => "16", readonly: true %> </li>
 										<li><%= t('Count') %>: <%= f.text_field :api_token_count, :size => "4" %> </li>
 										<li><%= t('Validity') %>: <%= f.date_field :api_token_validity, :size => "10" %> </li>
 										<li class="actions" ><%= f.submit "Renew" %></li>

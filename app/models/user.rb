@@ -41,6 +41,7 @@
 #
 
 class User < ApplicationRecord
+  acts_as_token_authenticatable
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'

@@ -58,7 +58,7 @@ class UsersController < ApplicationController
   def set_token
     @user = current_user
     @user.updated_by = current_user.user_name
-    @user.api_token = (BCrypt::Password.create(current_user.user_name+Time.now.to_i.to_s)).last(20)
+    @user.authentication_token = (BCrypt::Password.create(current_user.user_name+Time.now.to_i.to_s)).last(30)
 
     respond_to do |format|
       if @user.update(user_params)
