@@ -28,5 +28,32 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
+    
+    ### 2017-11-20 Frédéric
+    # Names of roles must match the related parameters codes
+    puts user.name
+    puts user.role.code
+    
+    case user.role.code
+    when '0' # Administrator
+      can :manage, Group
+      can :manage, User
+      can :manage, Parameter
+
+    when '1' # Business manager aka StatAdmin
+      can :manage, Group
+      can :manage, User
+
+    when '2' # Keys manager aka KeyAdmin
+      can :manage, Group
+      can :manage, Key
+
+    when '3' # Keys user aka StatWorker
+      can :read, Key
+      can :read, Group
+      can :read, User
+
+    end
+          
   end
 end

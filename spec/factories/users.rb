@@ -11,9 +11,8 @@
 #  user_name              :string(30)       not null
 #  language               :string(3)        not null
 #  group_id               :integer          not null
-#  role_id                :string           not null
-#  section                :string(100)
-#  created_at             :datetime         not null
+#  role_id                :integer          not null
+#  section                :string(100)      default("")
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
@@ -31,10 +30,14 @@
 #  failed_attempts        :integer          default(0), not null
 #  unlock_token           :string
 #  locked_at              :datetime
+#  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  created_by             :string(100)
 #  updated_by             :string(100)
 #  is_active              :boolean          default(TRUE)
+#  api_token              :string(100)
+#  api_token_count        :integer          default(1)
+#  api_token_validity     :datetime
 #
 
 FactoryGirl.define do
