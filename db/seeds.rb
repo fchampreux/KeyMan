@@ -36,12 +36,37 @@ end
 if Group.count==0
 puts "Creating administration group"
 Group.create(code: 'ADMIN', name: 'Administration', description: 'Administrators group', created_by: 'RAKE', updated_by: 'RAKE')
+puts "Creating business groups"
+Group.create(code: 'SALES', name: 'Sales Administration', description: 'Sales department group', created_by: 'RAKE', updated_by: 'RAKE')
+Group.create(code: 'SUPPORT', name: 'Support Administration', description: 'Cusomer services group', created_by: 'RAKE', updated_by: 'RAKE')
+Group.create(code: 'CLINICAL', name: 'Clinical Trial', description: 'Clinical trials group', created_by: 'RAKE', updated_by: 'RAKE')
 end
 
 if User.count==0
 puts "Creating administrator"
 User.create(name: 'Administrator', first_name: 'Keyman', is_admin: true, email: 'fred@nohoo.biz', user_name: 'Admin', language: ':en',
             group_id: 1, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 0, created_by: 'RAKE', updated_by: 'RAKE')
+puts "Creating Users 1 to 3 as BUS_ADMIN"
+User.create(name: 'Business admin', first_name: 'User1', is_admin: true, email: 'user1@nohoo.biz', user_name: 'User1', language: ':en',
+            group_id: 2, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 2, created_by: 'RAKE', updated_by: 'RAKE')
+User.create(name: 'Business admin', first_name: 'User2', is_admin: true, email: 'user2@nohoo.biz', user_name: 'User2', language: ':en',
+            group_id: 2, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 3, created_by: 'RAKE', updated_by: 'RAKE')
+User.create(name: 'Business admin', first_name: 'User3', is_admin: true, email: 'user3@nohoo.biz', user_name: 'User3', language: ':en',
+            group_id: 2, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 4, created_by: 'RAKE', updated_by: 'RAKE')
+puts "Creating Users 4 to 6 as KEY_ADMIN"
+User.create(name: 'Key admin', first_name: 'User4', is_admin: true, email: 'user4@nohoo.biz', user_name: 'User4', language: ':en',
+            group_id: 3, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 2, created_by: 'RAKE', updated_by: 'RAKE')
+User.create(name: 'Key admin', first_name: 'User5', is_admin: true, email: 'user5@nohoo.biz', user_name: 'User5', language: ':en',
+            group_id: 3, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 3, created_by: 'RAKE', updated_by: 'RAKE')
+User.create(name: 'Key admin', first_name: 'User6', is_admin: true, email: 'user6@nohoo.biz', user_name: 'User6', language: ':en',
+            group_id: 3, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 4, created_by: 'RAKE', updated_by: 'RAKE')
+puts "Creating Users 7 to 9 as BUS_WORKER"
+User.create(name: 'Business worker', first_name: 'User7', is_admin: true, email: 'user7@nohoo.biz', user_name: 'User7', language: ':en',
+            group_id: 4, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 2, created_by: 'RAKE', updated_by: 'RAKE')
+User.create(name: 'Business worker', first_name: 'User8', is_admin: true, email: 'user8@nohoo.biz', user_name: 'User8', language: ':en',
+            group_id: 4, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 3, created_by: 'RAKE', updated_by: 'RAKE')
+User.create(name: 'Business worker', first_name: 'User9', is_admin: true, email: 'user9@nohoo.biz', user_name: 'User9', language: ':en',
+            group_id: 4, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 4, created_by: 'RAKE', updated_by: 'RAKE')
 end
 
 =begin

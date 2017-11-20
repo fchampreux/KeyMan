@@ -3,7 +3,11 @@ module ParametersHelper
     def get_roles_list
         roles_list = Parameter.select("id, name").where("list_name=?",'Roles')
     end
-    
+
+    def get_initial_roles_list
+        roles_list = Parameter.select("id, name").where("id=?",'0')
+    end
+ 
     def get_parameters_lists
         lists_list = Parameter.select("id, name").where("list_name=?",'All lists')
     end
