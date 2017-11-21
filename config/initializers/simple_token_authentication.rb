@@ -5,7 +5,7 @@ SimpleTokenAuthentication.configure do |config|
   # If true, user is stored in the session and the authentication token and
   # email may be provided only once.
   # If false, users must provide their authentication token and email at every request.
-  # config.sign_in_token = false
+  config.sign_in_token = false
 
   # Configure the name of the HTTP headers watched for authentication.
   #
@@ -33,7 +33,9 @@ SimpleTokenAuthentication.configure do |config|
   #   Then both the header names identifier key and default value are modified accordingly:
   #     `config.header_names = { super_admin: { phone_number: 'X-SuperAdmin-PhoneNumber' } }`
   #
-  # config.header_names = { user: { authentication_token: 'X-User-Token', email: 'X-User-Email' } }
+  
+  config.identifiers = { user: 'user_name' }
+  config.header_names = { user: { authentication_token: 'X-User-Token', user_name: 'X-User-Name' } }
 
   # Configure the name of the attribute used to identify the user for authentication.
   # That attribute must exist in your model.
@@ -61,5 +63,5 @@ SimpleTokenAuthentication.configure do |config|
   # If false, given Devise trackable is configured for the relevant model,
   # then signing in through token authentication will be tracked as any other sign in.
   #
-  # config.skip_devise_trackable = true
+  config.skip_devise_trackable = true
 end

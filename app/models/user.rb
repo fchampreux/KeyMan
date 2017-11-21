@@ -43,8 +43,7 @@
 class User < ApplicationRecord
   acts_as_token_authenticatable
 
-  # Virtual attribute for authenticating by either username or email
-  # This is in addition to a real persisted field like 'username'
+  # Virtual attribute for authenticating by either user_name or email
   attr_accessor :login
   
   # Include default devise modules. Others available are:
