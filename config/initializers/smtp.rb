@@ -5,5 +5,5 @@ ActionMailer::Base.smtp_settings = {
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "fchampreux@gmail.com",
-    password: "#Emlxx*03!"
+    password: "#pass*03!"
     }
