@@ -37,7 +37,7 @@ group :development, :test do
   gem 'annotate', '~> 2.7'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'rspec-rails', '~> 3.5'
-  gem 'factory_girl_rails', '~> 4.7'
+  gem 'factory_bot_rails', '~> 4.8'
   gem 'capybara'
   gem 'faker'
 end
