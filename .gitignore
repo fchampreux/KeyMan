@@ -18,4 +18,4 @@ pickle-email-*.html
 # Gemfile.lock, .ruby-version, .ruby-gemset
 Gemfile~
 
-config/initializers/smtp.rb
+/config/initializers/smtp.rb
