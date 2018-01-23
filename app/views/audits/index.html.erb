@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Audit records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th> user_id </th>
+        <th> object_id </th>
+        <th> object_class </th>
+        <th> object_name </th>
+        <th> server_name </th>
+        <th> table_name </th>
+        <th> column_name </th>
+        <th> description </th>
+        <th> used_encrypt </th>
+        <th> used_decrypt </th>
+        <th> created_at </th>
+        <th> created_by </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @audits.order(:list_name).each do |audit| %>
+      <tr>
+        <td> user_id </td>
+        <td> object_id </td>
+        <td> object_class </td>
+        <td> object_name </td>
+        <td> server_name </td>
+        <td> table_name </td>
+        <td> column_name </td>
+        <td> description </td>
+        <td> used_encrypt </td>
+        <td> used_decrypt </td>
+        <td> created_at </td>
+        <td> created_by </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
