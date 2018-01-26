@@ -1,5 +1,5 @@
 
-class Audit < ApplicationRecord
+class AuditTrail < ApplicationRecord
 #Filters
 
 #Record validations
@@ -7,5 +7,6 @@ class Audit < ApplicationRecord
 
 
 #Record relations
-
+  belongs_to :user
+  
 end

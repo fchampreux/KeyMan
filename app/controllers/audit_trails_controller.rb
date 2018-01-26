@@ -1,12 +1,13 @@
-class AuditsController < ApplicationController
+class AuditTrailsController < ApplicationController
   before_action :authenticate_user!
 
   # GET /audits
   # GET /audits.json
   def index
-    @audits = Audit.all
+    @audit_trails = AuditTrails.all
   end
 
+=begin
   # GET /audits/1
   # GET /audits/1.json
   def show
@@ -32,5 +33,6 @@ class AuditsController < ApplicationController
       end
     end
   end
+=end
 
 end

@@ -5,7 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th> user_id </th>
+      <th> user </th>
+        <th> action </th>
         <th> object_id </th>
         <th> object_class </th>
         <th> object_name </th>
@@ -22,20 +23,21 @@
   </thead>
 
   <tbody>
-    <% @audits.order(:list_name).each do |audit| %>
+    <% @audit_trails.each do |audit| %>
       <tr>
-        <td> user_id </td>
-        <td> object_id </td>
-        <td> object_class </td>
-        <td> object_name </td>
-        <td> server_name </td>
-        <td> table_name </td>
-        <td> column_name </td>
-        <td> description </td>
-        <td> used_encrypt </td>
-        <td> used_decrypt </td>
-        <td> created_at </td>
-        <td> created_by </td>
+        <td> audit.user.name </td>
+        <td> audit.action </td>
+        <td> audit.object_id </td>
+        <td> audit.object_class </td>
+        <td> audit.object_name </td>
+        <td> audit.server_name </td>
+        <td> audit.table_name </td>
+        <td> audit.column_name </td>
+        <td> audit.description </td>
+        <td> audit.used_encrypt </td>
+        <td> audit.used_decrypt </td>
+        <td> audit.created_at </td>
+        <td> audit.created_by </td>
       </tr>
     <% end %>
   </tbody>

@@ -42,6 +42,7 @@ Group.create(code: 'SUPPORT', name: 'Support Administration', description: 'Cuso
 Group.create(code: 'CLINICAL', name: 'Clinical Trial', description: 'Clinical trials group', created_by: 'RAKE', updated_by: 'RAKE')
 end
 
+# Should define id here because not all db start with 0 or 1 
 if User.count==0
 puts "Creating administrator"
 User.create(name: 'Administrator', first_name: 'Keyman', is_admin: true, email: 'fred@nohoo.biz', user_name: 'Admin', language: ':en',
@@ -69,16 +70,8 @@ User.create(name: 'Business worker', first_name: 'User9', is_admin: true, email:
             group_id: 4, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 4, created_by: 'RAKE', updated_by: 'RAKE')
 end
 
-=begin
-if Group.count==0
-puts "Creating administration group"
-Group.create(code: 'ADMIN', name: 'Administration', description: 'Administrators group', created_by: 'RAKE', updated_by: 'RAKE')
+if AuditTrail.count==0
+puts "Registering seed activity"
+AuditTrail.create( user_id: 1, action: "Initialize", object_id: 0, description: "Running initialization script", created_by: "RAKE")
 end
-
-if User.count==0
-puts "Creating administrator"
-User.create(name: 'Administrator', first_name: 'Keyman', is_admin: true, email: 'fred@nohoo.biz', user_name: 'Admin', language: ':en',
-            group_id: 1, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 0, created_by: 'RAKE', updated_by: 'RAKE')
-end
-=end
 

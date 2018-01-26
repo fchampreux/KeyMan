@@ -1,6 +1,6 @@
-class AddTableAcl < ActiveRecord::Migration[5.0]
+class CreateAudits < ActiveRecord::Migration[5.0]
   def change
-    create_table "acl", force: :cascade do |t|
+    create_table "access_lists", force: :cascade do |t|
       t.integer  "key_id",                   null: false
       t.integer  "user_id",                  null: false
       t.boolean  "allow_encrypt", default: true
@@ -13,9 +13,10 @@ class AddTableAcl < ActiveRecord::Migration[5.0]
       t.string   "updated_by",   limit: 100
     end
     
-    create_table "audit", force: :cascade do |t|
+    create_table "audit_trails", force: :cascade do |t|
       t.integer  "user_id",                  null: false
-      t.integer  "object_id"
+      t.string   "action",                   null: false 
+      t.integer  "object_id",                null: false
       t.string   "object_class",  limit: 100
       t.string   "object_name",   limit: 100
       t.string   "server_name",   limit: 100
