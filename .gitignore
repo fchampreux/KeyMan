@@ -21,3 +21,4 @@ Gemfile~
 # Ignore configuration files
 config/database.yml
 config/initializers/smtp.rb
+config/initializers/mailgun.rb

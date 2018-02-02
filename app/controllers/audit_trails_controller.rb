@@ -4,7 +4,7 @@ class AuditTrailsController < ApplicationController
   # GET /audits
   # GET /audits.json
   def index
-    @audit_trails = AuditTrails.all
+    @audit_trails = AuditTrail.all
   end
 
 =begin

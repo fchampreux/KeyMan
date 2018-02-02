@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :groups
   devise_for :users
   resources :requests
-  resources :audit, :only=>[:index]
+  resources :audit_trails, :only=>[:index], :controller=>:audit_trails
   resources :users, :only=>[:edit, :update, :show, :index, :set_token] do
     patch 'set_token', on: :member
   end

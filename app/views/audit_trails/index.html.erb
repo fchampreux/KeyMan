@@ -2,7 +2,7 @@
 
 <h1>Audit records</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th> user </th>
@@ -18,26 +18,25 @@
         <th> used_decrypt </th>
         <th> created_at </th>
         <th> created_by </th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @audit_trails.each do |audit| %>
       <tr>
-        <td> audit.user.name </td>
-        <td> audit.action </td>
-        <td> audit.object_id </td>
-        <td> audit.object_class </td>
-        <td> audit.object_name </td>
-        <td> audit.server_name </td>
-        <td> audit.table_name </td>
-        <td> audit.column_name </td>
-        <td> audit.description </td>
-        <td> audit.used_encrypt </td>
-        <td> audit.used_decrypt </td>
-        <td> audit.created_at </td>
-        <td> audit.created_by </td>
+        <td><%= audit.user.name %></td>
+        <td><%= audit.action %></td>
+        <td><%= audit.object_id %></td>
+        <td><%= audit.object_class %></td>
+        <td><%= audit.object_name %></td>
+        <td><%= audit.server_name %></td>
+        <td><%= audit.table_name %></td>
+        <td><%= audit.column_name %></td>
+        <td><%= audit.description %></td>
+        <td><%= audit.used_encrypt %></td>
+        <td><%= audit.used_decrypt %></td>
+        <td><%= audit.created_at %></td>
+        <td><%= audit.created_by %></td>
       </tr>
     <% end %>
   </tbody>

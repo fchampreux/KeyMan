@@ -30,6 +30,7 @@ gem 'devise'
 gem 'devise_zxcvbn'
 gem 'rails-i18n', git: 'https://github.com/svenfuchs/rails-i18n', branch: 'master' # For 5.x
 gem 'redcarpet'
+gem 'mailgun-ruby', '~>1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
