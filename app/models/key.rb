@@ -33,4 +33,6 @@ class Key < ApplicationRecord
 #Relations
   belongs_to :group
   belongs_to :user
+  has_many :access_lists
+  accepts_nested_attributes_for :access_lists, :reject_if => :all_blank, :allow_destroy => false
 end

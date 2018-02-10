@@ -45,8 +45,9 @@ class GroupsController < ApplicationController
   # PATCH/PUT /groups/1
   # PATCH/PUT /groups/1.json
 def update
-  @group.updated_by = current_user.user_name
-    @group.keys.each { |k| k.updated_by = current_user.user_name}
+   @group.updated_by = current_user.user_name
+   @group.keys.each { |k| k.updated_by = current_user.user_name}
+   log_activity(@group.id, @group.name, 'na', 'na', 'na', 'Group update', false, false)
    respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }

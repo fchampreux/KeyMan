@@ -3,6 +3,23 @@ class ApplicationController < ActionController::Base
   #  include SessionsHelper
   before_action :configure_permitted_parameters, if: :devise_controller?
   
+      def log_activity(objectId, objectName, server, table, column, description, encrypt, decrypt)
+        @trail = AuditTrail.new
+        @trail.user = current_user
+        @trail.action = action_name
+        @trail.object_id = objectId || 0
+        @trail.object_class = controller_name
+        @trail.object_name = objectName
+        @trail.server_name = server
+        @trail.table_name = table
+        @trail.column_name = column
+        @trail.description = description
+        @trail.used_encrypt = encrypt
+        @trail.used_decrypt = decrypt
+        @trail.created_by = current_user.user_name
+        @trail.save
+    end
+      
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
       format.json { head :forbidden, content_type: 'text/html' }

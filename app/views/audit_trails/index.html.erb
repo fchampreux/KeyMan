@@ -22,21 +22,21 @@
   </thead>
 
   <tbody>
-    <% @audit_trails.each do |audit| %>
+    <% @audit_trails.each do |trail| %>
       <tr>
-        <td><%= audit.user.name %></td>
-        <td><%= audit.action %></td>
-        <td><%= audit.object_id %></td>
-        <td><%= audit.object_class %></td>
-        <td><%= audit.object_name %></td>
-        <td><%= audit.server_name %></td>
-        <td><%= audit.table_name %></td>
-        <td><%= audit.column_name %></td>
-        <td><%= audit.description %></td>
-        <td><%= audit.used_encrypt %></td>
-        <td><%= audit.used_decrypt %></td>
-        <td><%= audit.created_at %></td>
-        <td><%= audit.created_by %></td>
+        <td><%= trail.user.name %></td>
+        <td><%= trail.action %></td> 
+        <td><%= trail.object_id %></td> 
+        <td><%= trail.object_class %></td> 
+        <td><%= trail.object_name %></td> 
+        <td><%= trail.server_name %></td> 
+        <td><%= trail.table_name %></td> 
+        <td><%= trail.column_name %></td> 
+        <td><%= trail.description %></td> 
+        <td><%= trail.used_encrypt %></td> 
+        <td><%= trail.used_decrypt %></td> 
+        <td><%= trail.created_at %></td> 
+        <td><%= trail.created_by %></td> 
       </tr>
     <% end %>
   </tbody>

@@ -1,12 +1,12 @@
-<%= form_for(group) do |f| %>
+<%= form_for(@group) do |f| %>
 <div class="row">
   <div class="col-md-6">
-  <% if group.errors.any? %>
+  <% if @group.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
 
       <ul>
-      <% group.errors.full_messages.each do |message| %>
+      <% @group.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -77,7 +77,6 @@
 				<td> <%= cipher.description %> </td>
 			<% end %>
 		<% end %>
-
 
   </table>
  

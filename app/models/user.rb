@@ -38,6 +38,7 @@
 #  api_token              :string(100)
 #  api_token_count        :integer          default(1)
 #  api_token_validity     :datetime
+#  authentication_token   :string(100)
 #
 
 class User < ApplicationRecord

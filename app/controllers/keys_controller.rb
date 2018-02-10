@@ -44,5 +44,37 @@ class KeysController < ApplicationController
       format.json { render json: @key.key_hash }
     end
   end
+  
+  # GET /access_lists/1/edit
+  def edit
+  end
+
+  # PATCH/PUT /access_lists/1
+  # PATCH/PUT /access_lists/1.json
+  def update
+   @access_list.updated_by = current_user.user_name
+   log_activity(@access_list.id, @access_list.name, 'na', 'na', 'na', 'Access List update', false, false)
+   respond_to do |format|
+      if @access_list.update(access_list_params)
+        format.html { redirect_to @access_list, notice: 'Access List was successfully updated.' }
+        format.json { render :show, status: :ok, location: @access_list }
+      else
+        format.html { render :edit }
+        format.json { render json: @access_list.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_key
+      @key = Key.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def group_params
+      params.require(:key).permit(:name, :code, :description, access_lists_attributes:[:user_id, :allow_encrypt, :allow_encrypt, :valid_from, :valid_until, :_destroy, :id])
+    end
 
 end

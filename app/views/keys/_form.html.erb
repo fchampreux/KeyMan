@@ -1,0 +1,95 @@
+<%= form_for(@key) do |f| %>
+<div class="row">
+  <div class="col-md-6">
+  <% if @key.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@key.errors.count, "error") %> prohibited this key from being saved:</h2>
+
+      <ul>
+      <% @key.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    </div>
+   </div>
+
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('Name') %> :
+  </div>
+  <div class="col-md-3 field">
+    <%= @key.name %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('User') %> :
+  </div>
+  <div class="col-md-3 field">
+    <%= @key.user.name  %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('Group') %> :
+  </div>
+  <div class="col-md-3 field">
+    <%= @key.group.name  %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 field_name">
+    <%= t('Description') %> :
+  </div>
+  <div class="col-md-3 field">
+    <%= @key.description %>
+  </div>
+ </div>
+  
+<!-- should be displayed only if group udpate mode, and user is a keyAdmin role -->   	
+
+  <div class="row">
+    <div class="col-md-9 col-md-offset-1">
+  <hr/>
+  <h2> <%= t('AccessList') %> </h2>
+      
+  <table class="table table-striped">
+    <tr>
+      <th></th>
+      <th><%= t('User') %></th>
+      <th><%= t('AllowEncrypt') %></th>
+      <th><%= t('AllowDecrypt') %></th>
+      <th><%= t('ValidFrom') %></th>
+      <th><%= t('ValidUntil') %></th>
+    </tr>
+
+			<%=  f.nested_fields_for :access_lists, wrapper_tag: 'tr' do |access| %>
+				<td> <%= access.remove_nested_fields_link {image_tag("remove.png")} %></td>
+				<td> <%= access.collection_select :user_id, Users.all, :id, :name %> </td>
+				<td> <%= access.check_box :allow_encrypt %> </td>
+				<td> <%= access.check_box :allow_decrypt %> </td>
+				<td> <%= access.text_field :valid_from %> </td>
+				<td> <%= access.text_field :valid_until %> </td>
+			<% end %>
+
+  </table>
+ 
+		<%= f.add_nested_fields_link :keys, image_tag("add.png") %> <%= t('New') %> 
+
+  </div>
+  </div>   	
+		<div class="row">
+			<div class="col-md-4 col-md-offset-1">
+		<div class="actions">
+    <%= f.submit %>
+  </div>
+
+  </div>
+</div>
+  
+<% end %>

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :requests
   resources :audit_trails, :only=>[:index], :controller=>:audit_trails
+  resources :keys 
   resources :users, :only=>[:edit, :update, :show, :index, :set_token] do
     patch 'set_token', on: :member
   end
