@@ -1,6 +1,7 @@
 class KeysController < ApplicationController
   
   acts_as_token_authentication_handler_for User
+  before_action :set_key, only: [ :edit, :update ]
 
   # Security note: controllers with no-CSRF protection must disable the Devise fallback,
   # see #49 for details.
@@ -47,20 +48,21 @@ class KeysController < ApplicationController
   
   # GET /access_lists/1/edit
   def edit
+    @key = Key.find(params[:id])
   end
 
   # PATCH/PUT /access_lists/1
   # PATCH/PUT /access_lists/1.json
   def update
-   @access_list.updated_by = current_user.user_name
-   log_activity(@access_list.id, @access_list.name, 'na', 'na', 'na', 'Access List update', false, false)
+   @key.updated_by = current_user.user_name
+   log_activity(@key.id, @key.name, 'na', 'na', 'na', 'Access List update', false, false)
    respond_to do |format|
-      if @access_list.update(access_list_params)
-        format.html { redirect_to @access_list, notice: 'Access List was successfully updated.' }
-        format.json { render :show, status: :ok, location: @access_list }
+      if @key.update(key_params)
+        format.html { redirect_to @key.group, notice: 'Access List was successfully updated.' }
+        format.json { render :show, status: :ok, location: @key.group }
       else
         format.html { render :edit }
-        format.json { render json: @access_list.errors, status: :unprocessable_entity }
+        format.json { render json: @key.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -73,7 +75,7 @@ class KeysController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def group_params
+    def key_params
       params.require(:key).permit(:name, :code, :description, access_lists_attributes:[:user_id, :allow_encrypt, :allow_encrypt, :valid_from, :valid_until, :_destroy, :id])
     end
 

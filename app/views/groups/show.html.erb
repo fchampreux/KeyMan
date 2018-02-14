@@ -52,7 +52,7 @@
           
           <% @group.keys.order("updated_at").each do |child_object| %>
           <tr align="left">
-            <td><%= link_to image_tag("lock16.png"), child_object %> </a></td>
+            <td><%= link_to image_tag("lock16.png"), edit_key_path(child_object) %> </a></td>
             <td valign="top"> <%=child_object.id%> </td>
             <td valign="top"> <%=child_object.name%> </td>
             <td valign="top"> <%=child_object.user.first_name + ' ' + child_object.user.name %> </td>
