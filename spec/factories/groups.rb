@@ -13,7 +13,7 @@
 #  is_active   :boolean          default(TRUE)
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :group do
     id          0
     name        "Test Group"

@@ -14,7 +14,7 @@
 #  updated_by  :string(100)
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :parameter do
     id          0
     name        "Test Parameter"

@@ -41,7 +41,7 @@
 #  authentication_token   :string(100)
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     name 'Tester'
     first_name 'First'

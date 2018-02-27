@@ -17,7 +17,7 @@
 #  is_active   :boolean          default(TRUE)
 #
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :key do
     name "Test key"
     description "This key is used for unit testing"
