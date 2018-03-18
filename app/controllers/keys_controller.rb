@@ -39,6 +39,7 @@ class KeysController < ApplicationController
   def api
     @key = Key.find(params[:id])
     @user = User.find(@key.user_id)
+    log_activity(@key.id, @key.name, 'na', 'na', 'na', 'Key requested', false, false)
     puts @user.user_name
     respond_to do |format|
       format.html 
