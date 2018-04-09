@@ -80,4 +80,5 @@
   </div>
 
 <%= link_to t('EditUser'), edit_user_path(@user) %> |
-<%= link_to t('Back'), users_path %>
+<%= link_to t('Back'), users_path %> | 
+<%= link_to t('Delete'), @user, confirm: t('Sure'), method: :delete %>

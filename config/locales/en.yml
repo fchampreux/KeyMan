@@ -37,8 +37,9 @@ en:
   Help:         "Help"
   Back:         "Go back"
   Show:         "Show"
-  Edit:		"Edit"
-  Validate:	"Validate"
+  Edit:	      	"Edit"
+  Validate:    	"Validate"
+  Delete:       "Inactivate"
   
   #Shared fields
   Name:         "Name"
@@ -67,3 +68,6 @@ en:
   Role:         "Role"
   Section:	    "Section"
   PKI_file:     "Please upload your Public Key (if available):"
+  
+  #Messages
+  Sure:         "Please confirm deletion"

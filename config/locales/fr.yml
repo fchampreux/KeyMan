@@ -37,6 +37,7 @@ fr:
   Help:         "Aide"
   Back:         "Retour"
   Show:         "Afficher"
+  Delete:       "Désactiver"
   
   #Shared fields
   Name:         "Nom"
@@ -65,3 +66,6 @@ fr:
   Role:         "Rôle"
   Section:	    "Section"
   PKI_file:     "Chargez votre clef publique (si disponible):"
+  
+  #Messages
+  Sure:         "Confirmez-vous la suppression ?"

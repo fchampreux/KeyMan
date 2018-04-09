@@ -56,7 +56,7 @@ class ParametersController < ApplicationController
   # DELETE /parameters/1
   # DELETE /parameters/1.json
   def destroy
-    @parameter.destroy
+    #@parameter.destroy
     respond_to do |format|
       format.html { redirect_to parameters_url, notice: 'Parameter was successfully destroyed.' }
       format.json { head :no_content }

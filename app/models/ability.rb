@@ -49,16 +49,22 @@ class Ability
     when '2' # Business manager aka Stat Adminn
       can :manage, Group
       can :manage, Key
+      can :read, Parameter
 
     when '3' # Data Owner aka Stat Owner
       can :read, Key
       can :read, Group
       can :read, User
+      can :read, Parameter
       
-    when '4' # Keys user aka Stat Worker
+    when '4' # Keys user aka Stat Worker or Data Steward
       can :read, Key
       can :read, Group
       can :read, User
+      can :read, Parameter
+      
+    else
+      can :read, Group
       
     end
           

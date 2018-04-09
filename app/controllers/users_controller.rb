@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.where("is_active = true")
   end
 
   # GET /users/1
@@ -80,10 +80,12 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.is_active = false
-    log_activity(@user.id, @user.user_name, request.env['REMOTE_ADDR'], 'na', 'na', 'User deactivated', false, false)
+    @user.updated_by = current_user.user_name
+    @user.save
+    log_activity(@user.id, @user.user_name, request.env['REMOTE_ADDR'], 'na', 'na', 'User inactivated', false, false)
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'User was successfully inactivated.' }
       format.json { head :no_content }
     end
   end

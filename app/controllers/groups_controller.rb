@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.all
+    @groups = Group.where("is_active = true")
   end
 
   # GET /groups/1
@@ -66,9 +66,11 @@ def update
   # DELETE /groups/1.json
   def destroy
     @group.is_active = false
-   log_activity(@group.id, @group.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Group updated', false, false)
+    @group.updated_by = current_user.user_name
+    @group.save
+    log_activity(@group.id, @group.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Group inactivated', false, false)
     respond_to do |format|
-      format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
+      format.html { redirect_to groups_url, notice: 'Group was successfully inactivated.' }
       format.json { head :no_content }
     end
   end

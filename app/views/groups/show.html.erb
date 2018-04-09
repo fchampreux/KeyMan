@@ -93,4 +93,5 @@
   </div>
   
 <%= link_to t('EditGroup'), edit_group_path(@group) %> |
-<%= link_to t('Back'), groups_path %>
+<%= link_to t('Back'), groups_path %> | 
+<%= link_to t('Delete'), @group, confirm: t('Sure'), method: :delete %>
