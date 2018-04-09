@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Audit records</h1>
-
+<%= will_paginate %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -11,8 +11,6 @@
         <th> object_class </th>
         <th> object_name </th>
         <th> server_name </th>
-        <th> table_name </th>
-        <th> column_name </th>
         <th> description </th>
         <th> used_encrypt </th>
         <th> used_decrypt </th>
@@ -29,9 +27,7 @@
         <td><%= trail.object_id %></td> 
         <td><%= trail.object_class %></td> 
         <td><%= trail.object_name %></td> 
-        <td><%= trail.server_name %></td> 
-        <td><%= trail.table_name %></td> 
-        <td><%= trail.column_name %></td> 
+        <td><%= trail.server_name %></td>  
         <td><%= trail.description %></td> 
         <td><%= trail.used_encrypt %></td> 
         <td><%= trail.used_decrypt %></td> 
@@ -41,5 +37,5 @@
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate %>
 <br>

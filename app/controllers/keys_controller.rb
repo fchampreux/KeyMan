@@ -37,10 +37,11 @@ class KeysController < ApplicationController
  
   #API
   def api
-    @key = Key.find(params[:id])
-    @user = User.find(@key.user_id)
-    log_activity(@key.id, @key.name, 'na', 'na', 'na', 'Key requested', false, false)
-    puts @user.user_name
+    @key = Key.find(params[:id])    
+#   @key = Key.joins(:access_list).where("key.id = ? and access_lists.user_id = ? and Time.now between access_lists.valid_from and access_list.valid_until,  params[:id, :user_id]).take
+#    @user = User.find(@key.user_id)
+    log_activity(@key.id, @key.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Key requested', false, false)
+#    puts @user.user_name
     respond_to do |format|
       format.html 
       format.json { render json: @key.key_hash }
@@ -56,7 +57,7 @@ class KeysController < ApplicationController
   # PATCH/PUT /access_lists/1.json
   def update
    @key.updated_by = current_user.user_name
-   log_activity(@key.id, @key.name, 'na', 'na', 'na', 'Access List update', false, false)
+   log_activity(@key.id, @key.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Access List update', false, false)
    respond_to do |format|
       if @key.update(key_params)
         format.html { redirect_to @key.group, notice: 'Access List was successfully updated.' }

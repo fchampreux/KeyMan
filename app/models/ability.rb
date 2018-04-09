@@ -35,24 +35,31 @@ class Ability
     puts user.role.code
     
     case user.role.code
-    when '0' # Administrator
+    when '0' # Application Administrator
       can :manage, Group
       can :manage, User
       can :manage, Parameter
 
-    when '1' # Business manager aka StatAdmin
+    when '1' # Keys manager aka KeyAdmin or Data Protection Officer (organisation wide)
       can :manage, Group
-      can :manage, User
+      can :manage, Key #Load Key through Group
+      can :read, User
+      can :read, Parameter
 
-    when '2' # Keys manager aka KeyAdmin
+    when '2' # Business manager aka Stat Adminn
       can :manage, Group
       can :manage, Key
 
-    when '3' # Keys user aka StatWorker
+    when '3' # Data Owner aka Stat Owner
       can :read, Key
       can :read, Group
       can :read, User
-
+      
+    when '4' # Keys user aka Stat Worker
+      can :read, Key
+      can :read, Group
+      can :read, User
+      
     end
           
   end

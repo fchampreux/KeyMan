@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /users
   # GET /users.json
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    log_activity(@user.id, @user.user_name, request.env['REMOTE_ADDR'], 'na', 'na', 'User created', false, false)
 
     respond_to do |format|
       if @user.save
@@ -43,6 +45,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     @user.updated_by = current_user.user_name
+    log_activity(@user.id, @user.user_name, request.env['REMOTE_ADDR'], 'na', 'na', 'User updated', false, false)
 
     respond_to do |format|
       if @user.update(user_params)
@@ -59,6 +62,7 @@ class UsersController < ApplicationController
     @user = current_user
     @user.updated_by = current_user.user_name
     @user.authentication_token = (BCrypt::Password.create(current_user.user_name+Time.now.to_i.to_s)).last(30)
+    log_activity(@user.id, @user.user_name, request.env['REMOTE_ADDR'], 'na', 'na', 'User token created', false, false)
 
     respond_to do |format|
       if @user.update(user_params)
@@ -75,7 +79,9 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user.destroy
+    @user.is_active = false
+    log_activity(@user.id, @user.user_name, request.env['REMOTE_ADDR'], 'na', 'na', 'User deactivated', false, false)
+
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }

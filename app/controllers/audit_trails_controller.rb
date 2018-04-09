@@ -4,7 +4,7 @@ class AuditTrailsController < ApplicationController
   # GET /audits
   # GET /audits.json
   def index
-    @audit_trails = AuditTrail.order(id: :desc).all
+    @audit_trails = AuditTrail.order(id: :desc).all.paginate(page: params[:page], per_page: 10)
   end
 
 =begin

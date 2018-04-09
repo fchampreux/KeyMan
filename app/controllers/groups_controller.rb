@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /groups
   # GET /groups.json
@@ -30,6 +31,8 @@ class GroupsController < ApplicationController
     @group.updated_by = current_user.user_name
     @group.keys.each { |k| k.created_by = current_user.user_name }
     @group.keys.each { |k| k.updated_by = current_user.user_name}
+    log_activity(@group.id, @group.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Group created', false, false)
+
 
     respond_to do |format|
       if @group.save
@@ -47,7 +50,7 @@ class GroupsController < ApplicationController
 def update
    @group.updated_by = current_user.user_name
    @group.keys.each { |k| k.updated_by = current_user.user_name}
-   log_activity(@group.id, @group.name, 'na', 'na', 'na', 'Group update', false, false)
+   log_activity(@group.id, @group.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Group updated', false, false)
    respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to @group, notice: 'Group was successfully updated.' }
@@ -62,7 +65,8 @@ def update
   # DELETE /groups/1
   # DELETE /groups/1.json
   def destroy
-    @group.destroy
+    @group.is_active = false
+   log_activity(@group.id, @group.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Group updated', false, false)
     respond_to do |format|
       format.html { redirect_to groups_url, notice: 'Group was successfully destroyed.' }
       format.json { head :no_content }
@@ -77,6 +81,6 @@ def update
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :code, :description, keys_attributes:[:user_id, :name, :description, :valid_from, :valid_until, :_destroy, :id])
+      params.require(:group).permit(:name, :code, :description, keys_attributes:[:user_id, :name, :description, :valid_from, :valid_until, :id])
     end
 end
