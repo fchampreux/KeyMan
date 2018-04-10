@@ -27,7 +27,7 @@ class ParametersController < ApplicationController
   # POST /parameters.json
   def create
     @parameter = Parameter.new(parameter_params)
-    log_activity(@paramter.id, @parameter.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Parameter created', false, false)
+    log_activity(@parameter.id, @parameter.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Parameter created', false, false)
     respond_to do |format|
       if @parameter.save
         format.html { redirect_to @parameter, notice: 'Parameter was successfully created.' }
@@ -42,7 +42,7 @@ class ParametersController < ApplicationController
   # PATCH/PUT /parameters/1
   # PATCH/PUT /parameters/1.json
   def update
-    log_activity(@paramter.id, @parameter.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Parameter updated', false, false)
+    log_activity(@parameter.id, @parameter.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Parameter updated', false, false)
     respond_to do |format|
       if @parameter.update(parameter_params)
         format.html { redirect_to @parameter, notice: 'Parameter was successfully updated.' }
@@ -60,7 +60,7 @@ class ParametersController < ApplicationController
     @parameter.is_active = false
     @parameter.updated_by = current_user.user_name
     @parameter.save
-    log_activity(@paramter.id, @parameter.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Parameter deleted', false, false)
+    log_activity(@parameter.id, @parameter.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Parameter deleted', false, false)
     respond_to do |format|
       format.html { redirect_to parameters_url, notice: 'Parameter was successfully destroyed.' }
       format.json { head :no_content }

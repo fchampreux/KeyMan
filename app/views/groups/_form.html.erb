@@ -58,7 +58,7 @@
       <th><%= t('ValidUntil') %></th>
       <th><%= t('Description') %></th>
     </tr>
-		<% if can? :manage, Key %> 
+		<% if can? :update, Key %> 
 			<%=  f.nested_fields_for :keys, wrapper_tag: 'tr' do |cipher| %>
 				<td> <%= cipher.remove_nested_fields_link {image_tag("remove.png")} %></td>
 				<td> <%= cipher.collection_select :user_id, @group.users, :id, :name %> </td>
@@ -83,7 +83,7 @@
 
   </table>
  
-	<% if can? :manage, Key %>  
+	<% if can? :create, Key %>  
 		<%= f.add_nested_fields_link :keys, image_tag("add.png") %> <%= t('New') %> 
 	<% end %>
 
