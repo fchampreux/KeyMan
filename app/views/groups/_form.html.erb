@@ -58,19 +58,34 @@
       <th><%= t('ValidUntil') %></th>
       <th><%= t('Description') %></th>
     </tr>
+		<% if can? :manage, Key %> 
+			<%=  f.nested_fields_for :keys, wrapper_tag: 'tr' do |cipher| %>
+				<td> <%= cipher.remove_nested_fields_link {image_tag("remove.png")} %></td>
+				<td> <%= cipher.collection_select :user_id, @group.users, :id, :name %> </td>
+				<td> <%= cipher.text_field :name %> </td>
+				<td> <%= cipher.text_field :valid_from %> </td>
+				<td> <%= cipher.text_field :valid_until %> </td>
+				<td> <%= cipher.text_area :description %> </td>
+			<% end %>
+		<% else %>
+			<% group.keys.each do |cipher| %>
+   <tr>
+     <td> </td>
+     <td> <%= cipher.user.name %> </td>
+     <td> <%= cipher.name %> </td>
+     <td> <%= cipher.valid_from %> </td>
+     <td> <%= cipher.valid_until %> </td>
+     <td> <%= cipher.description %> </td>
+   </tr>
 
-    <%=  f.nested_fields_for :keys, wrapper_tag: 'tr' do |cipher| %>
-     <td> <%= cipher.remove_nested_fields_link {image_tag("remove.png")} %></td>
-     <td> <%= cipher.collection_select :user_id, @group.users, :id, :name %> </td>
-     <td> <%= cipher.text_field :name %> </td>
-     <td> <%= cipher.text_field :valid_from %> </td>
-     <td> <%= cipher.text_field :valid_until %> </td>
-     <td> <%= cipher.text_area :description %> </td>
-    <% end %>
+			<% end %>
+		<% end %>
 
   </table>
-  
+ 
+	<% if can? :manage, Key %>  
 		<%= f.add_nested_fields_link :keys, image_tag("add.png") %> <%= t('New') %> 
+	<% end %>
 
   </div>
   </div>   	

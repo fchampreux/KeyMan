@@ -1,7 +1,7 @@
 module ParametersHelper
   
     def get_roles_list
-        roles_list = Parameter.select("id, name").where("list_name=?",'Roles')
+        roles_list = Parameter.select("id, name").where("is_active=true and list_name=?",'Roles')
     end
 
     def get_initial_roles_list

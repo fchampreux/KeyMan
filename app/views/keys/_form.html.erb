@@ -20,7 +20,7 @@
     <%= t('Name') %> :
   </div>
   <div class="col-md-3 field">
-    <%= @key.name %>
+    <%= f.text_field :name %>
   </div>
 </div>
 
@@ -47,7 +47,7 @@
     <%= t('Description') %> :
   </div>
   <div class="col-md-3 field">
-    <%= @key.description %>
+    <%= f.text_area :description %>
   </div>
  </div>
   
@@ -67,7 +67,7 @@
       <th><%= t('ValidFrom') %></th>
       <th><%= t('ValidUntil') %></th>
     </tr>
-
+		<% if can? :manage, AccessList %> 
 			<%=  f.nested_fields_for :access_lists, wrapper_tag: 'tr' do |access| %>
 				<td> <%= access.remove_nested_fields_link {image_tag("remove.png")} %></td>
 				<td> <%= access.collection_select :user_id, User.all, :id, :name %> </td>
@@ -76,17 +76,31 @@
 				<td> <%= access.text_field :valid_from %> </td>
 				<td> <%= access.text_field :valid_until %> </td>
 			<% end %>
-
+  <% else %>
+   <% @key.access_lists.each do |access| %>
+    <tr>
+     <td> </td>
+     <td> <%= access.user.name %> </td>
+     <td> <%= access.allow_encrypt %> </td>
+     <td> <%= access.allow_decrypt %> </td>
+     <td> <%= access.valid_from %> </td>
+     <td> <%= access.valid_until %> </td>
+    </tr>
+   <% end %>
+  <% end %>
+   
   </table>
  
-		<%= f.add_nested_fields_link :access_lists, image_tag("add.png") %> <%= t('New') %> 
+ <% if can? :manage, AccessList %>
+		<%= f.add_nested_fields_link :access_lists, image_tag("add.png") %> <%= t('New') %>
+ <% end %>
 
   </div>
   </div>   	
-		<div class="row">
-			<div class="col-md-4 col-md-offset-1">
-		<div class="actions">
-    <%= f.submit %>
+   <div class="row">
+    <div class="col-md-4 col-md-offset-1">
+   <div class="actions">
+     <%= f.submit %>
   </div>
 
   </div>
