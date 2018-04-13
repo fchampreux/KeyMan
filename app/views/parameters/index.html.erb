@@ -22,7 +22,7 @@
         <td><%= parameter.list_name %></td>
 <!--    <td><%= link_to 'Show', parameter %></td> -->
         <td><%= link_to 'Edit', edit_parameter_path(parameter) %></td>
-        <td><%= link_to 'Destroy', parameter, method: :delete, data: { confirm: t('Sure') } %></td>
+        <td><%= link_to 'Inactivate', parameter, method: :delete, data: { confirm: t('Sure') } %></td>
       </tr>
     <% end %>
   </tbody>

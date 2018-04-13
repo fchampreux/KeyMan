@@ -25,5 +25,6 @@ class AccessList < ApplicationRecord
 
 #Record relations
   belongs_to :key
+  belongs_to :user
   
 end
