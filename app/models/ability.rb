@@ -47,7 +47,8 @@ class Ability
       can :read, Parameter
 
     when '2' # Business manager aka Stat Adminn
-      can :manage, Group
+      can :manage, Group, id: user.group_id # manage his own group only
+      can :read, Group
       can [:read, :update], Key
       can :read, AccessList 
       can :read, User
