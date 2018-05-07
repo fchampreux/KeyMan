@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   #  include SessionsHelper
   before_action :configure_permitted_parameters, if: :devise_controller?
   
-      def log_activity(objectId, objectName, server, table, column, description, encrypt, decrypt)
+# Audit trail recording function
+    def log_activity(objectId, objectName, server, table, column, description, encrypt, decrypt)
         @trail = AuditTrail.new
         @trail.user = current_user
         @trail.action = action_name
@@ -19,7 +20,8 @@ class ApplicationController < ActionController::Base
         @trail.created_by = current_user.user_name
         @trail.save
     end
-      
+   
+# Cancan notification   
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
       format.json { head :forbidden, content_type: 'text/html' }
@@ -28,6 +30,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+# Devise permitted parameters
   protected
   def configure_permitted_parameters
     added_attrs = [:email, :name, :first_name, :group_id, :role_id, :is_admin, :language, :user_name, :remember_me]
