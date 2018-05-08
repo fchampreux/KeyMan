@@ -3,8 +3,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th> <%= t('Name') %></th>
+      <th> <%= t('UserName') %></th>
       <th> <%= t('FirstName')%> </th>
+      <th> <%= t('Name') %></th>
       <th> <%= t('Role')%> </th>
       <th> <%= t('Group')%> </th>
       <th> <%= t('Section')%> </th>
@@ -15,8 +16,9 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to user.name, user %></td>
+        <td><%= link_to user.user_name, user %></td>
         <td><%= user.first_name %></td>
+        <td><%= user.name %></td>
         <td><%= user.role.name %></td>
         <td><%= user.group.name %></td>
         <td><%= user.section %></td>

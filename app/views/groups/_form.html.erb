@@ -61,7 +61,7 @@
 		<% if can? :update, Key %> 
 			<%=  f.nested_fields_for :keys, wrapper_tag: 'tr' do |cipher| %>
 				<td> <%= cipher.remove_nested_fields_link {image_tag("remove.png")} %></td>
-				<td> <%= cipher.collection_select :user_id, @group.users, :id, :user_name %> </td>
+				<td> <%= cipher.collection_select :user_id, @group.users, :id, :user_name %> </td> <!-- should propose only data owner-->
 				<td> <%= cipher.text_field :name %> </td>
 				<td> <%= cipher.text_field :valid_from %> </td>
 				<td> <%= cipher.text_field :valid_until %> </td>
