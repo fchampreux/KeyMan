@@ -51,7 +51,7 @@
   </div>
  </div>
   
-<!-- should be displayed only if group udpate mode, and user is a keyAdmin role -->   	
+<!-- should be editable only if user is a data owner role -->   	
 
   <div class="row">
     <div class="col-md-9 col-md-offset-1">
@@ -70,7 +70,7 @@
 		<% if can? :manage, AccessList %> 
 			<%=  f.nested_fields_for :access_lists, wrapper_tag: 'tr' do |access| %>
 				<td> <%= access.remove_nested_fields_link {image_tag("remove.png")} %></td>
-				<td> <%= access.collection_select :user_id, User.all, :id, :name %> </td>
+				<td> <%= access.collection_select :user_id, User.all, :id, :user_name %> </td>
 				<td> <%= access.check_box :allow_encrypt %> </td>
 				<td> <%= access.check_box :allow_decrypt %> </td>
 				<td> <%= access.text_field :valid_from %> </td>
