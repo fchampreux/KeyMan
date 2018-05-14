@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
-  def create
+  def register
     @user = User.new(user_params)
     log_activity(@user.id, @user.user_name, request.env['REMOTE_ADDR'], 'na', 'na', 'User created', false, false)
 
