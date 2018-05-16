@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   # POST /users
   # POST /users.json
-  def register
+  def create
     @user = User.new(user_params)
     log_activity(@user.id, @user.user_name, request.env['REMOTE_ADDR'], 'na', 'na', 'User created', false, false)
 
@@ -98,6 +98,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :first_name, :user_name, :group_id, :role_id, :email, :language, :section, :api_token_count, :api_token_validity)
+      params.require(:user).permit(:name, :first_name, :user_name, :group_id, :role_id, :email, :language, :section,
+                                   :api_token_count, :api_token_validity, :password, :password_confirmation)
     end
 end

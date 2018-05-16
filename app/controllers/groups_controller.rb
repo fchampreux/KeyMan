@@ -33,7 +33,6 @@ class GroupsController < ApplicationController
     @group.keys.each { |k| k.updated_by = current_user.user_name}
     log_activity(@group.id, @group.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Group created', false, false)
 
-
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
