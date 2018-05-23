@@ -37,8 +37,8 @@ class KeysController < ApplicationController
  
   #API
   def api
-    @key = Key.find(params[:id])    
-#   @key = Key.joins(:access_list).where("key.id = ? and access_lists.user_id = ? and Time.now between access_lists.valid_from and access_list.valid_until,  params[:id, :user_id]).take
+#   @key = Key.find(params[:id])   
+    @key = Key.joins(:access_lists).where("access_lists.key_id = ? and access_lists.user_id = ? and ? between access_lists.valid_from and access_lists.valid_until",  params[:id], current_user.id, Time.now).first
     log_activity(@key.id, @key.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Key requested', false, false)
     respond_to do |format|
       format.html 

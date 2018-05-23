@@ -9,11 +9,11 @@ module ParametersHelper
     end
  
     def get_parameters_lists
-        lists_list = Parameter.select("id, name").where("list_name=?",'All lists')
+        lists_list = Parameter.select("id, name, value").where("list_name=?",'All lists')
     end
     
     def get_sections_list
-        sections_list = Parameter.select("id, name").where("list_name=?",'Sections')
+        sections_list = Parameter.select("id, name, value").where("list_name=?",'Sections')
     end
     
     def get_keysizes_list

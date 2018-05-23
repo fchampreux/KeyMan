@@ -17,7 +17,7 @@
 class Parameter < ApplicationRecord
     
 #Validations
-  validates :name, :code, :value, :created_by, :updated_by, presence: true
+  validates :name, :code, presence: true
   validates :name, length: { minimum: 5, maximum: 100 }
   validates :code, length: { minimum: 1, maximum: 30 }
   validates :name, uniqueness: {case_sensitive: false }

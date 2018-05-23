@@ -20,7 +20,7 @@
     <%= t('Name') %> :
   </div>
   <div class="col-md-3 field">
-    <%= f.text_field :name %>
+    <%= @key.name %>
   </div>
 </div>
 
@@ -29,7 +29,7 @@
     <%= t('User') %> :
   </div>
   <div class="col-md-3 field">
-    <%= @key.user.name  %>
+				<td> <%= f.collection_select :user_id, data_owners_list, :id, :user_name %> </td> 
   </div>
 </div>
 
@@ -70,7 +70,7 @@
 		<% if can? :manage, AccessList %> 
 			<%=  f.nested_fields_for :access_lists, wrapper_tag: 'tr' do |access| %>
 				<td> <%= access.remove_nested_fields_link {image_tag("remove.png")} %></td>
-				<td> <%= access.collection_select :user_id, User.all, :id, :user_name %> </td>
+				<td> <%= access.collection_select :user_id, data_stewards_list, :id, :user_name %> </td>
 				<td> <%= access.check_box :allow_encrypt %> </td>
 				<td> <%= access.check_box :allow_decrypt %> </td>
 				<td> <%= access.text_field :valid_from %> </td>

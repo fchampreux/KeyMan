@@ -29,6 +29,8 @@ Parameter.create(id: 1002, name: 'Sections list', description: 'Lists the sectio
 Parameter.create(id: 100, name: 'Information technologies', description: 'Resources related to Information Technologies', code: 'R/IT', value: 'R/IT', list_name: 'Sections', created_by: 'RAKE', updated_by: 'RAKE')
 #Parameter.create(id: 101, name: 'Population', description: 'Statistiques liées à la population', code: 'BB/POP', value: 'BB/POP', list_name: 'Sections', created_by: 'RAKE', updated_by: 'RAKE')
 #Parameter.create(id: 102, name: 'Démographie et migration', description: 'Statistiques liées à la démographie et aux migrations', code: 'BB/DEM', value: 'BB/DEM', list_name: 'Sections', created_by: 'RAKE', updated_by: 'RAKE')
+
+ActiveRecord::Base.connection.execute("ALTER SEQUENCE parameters_id_seq INCREMENT BY 1 RESTART WITH 10000")
 end
 
 if Group.count==0
