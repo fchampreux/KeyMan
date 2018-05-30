@@ -12,8 +12,8 @@
         <th> object_name </th>
         <th> server_name </th>
         <th> description </th>
-        <th> used_encrypt </th>
-        <th> used_decrypt </th>
+<!--    <th> used_encrypt </th> Only necessary if the database package can trace this 
+        <th> used_decrypt </th> -->
         <th> created_at </th>
         <th> created_by </th>
     </tr>
@@ -29,8 +29,8 @@
         <td><%= trail.object_name %></td> 
         <td><%= trail.server_name %></td>  
         <td><%= trail.description %></td> 
-        <td><%= trail.used_encrypt %></td> 
-        <td><%= trail.used_decrypt %></td> 
+<!--    <td><%= trail.used_encrypt %></td> Only necessary if the database package can trace this 
+        <td><%= trail.used_decrypt %></td> -->
         <td><%= trail.created_at %></td> 
         <td><%= trail.created_by %></td> 
       </tr>

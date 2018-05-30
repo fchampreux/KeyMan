@@ -2,7 +2,7 @@
 
 <p>
   <strong><%=t('User')%>:</strong>
-  <%= @user.user_name %>
+  <%= current_user.user_name %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong><%=t('Hash')%></strong>
-  <%= @key.key_hash %>
+  <%= @key.key_hash.reverse %>
 </p>
 
 

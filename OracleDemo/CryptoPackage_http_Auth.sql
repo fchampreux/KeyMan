@@ -13,6 +13,7 @@ create or replace package body KR2 as
     myToken varchar2(100); --Token for user authentication
     myPass varchar2(32);  --Cypher returned by keys server
     myToPass varchar2(32);  --Cypher returned by keys server
+    myStatus varchar2(32);  --http status returned by keys server
     
 ---procedure to get the cypher --> initialise when opening the session
     procedure get_pass(myURL IN varchar2, myUserName IN varchar2, myToken IN varchar2)
@@ -26,8 +27,13 @@ create or replace package body KR2 as
       UTL_HTTP.SET_HEADER(l_http_request,'X-User-Token', myToken);
       l_http_response := UTL_HTTP.get_response(l_http_request);
       UTL_HTTP.read_text(l_http_response, myPass, 32);
-      UTL_HTTP.END_RESPONSE(l_http_response)
+      myStatus := l_http_response.status_code;
+      UTL_HTTP.END_RESPONSE(l_http_response);
+      dbms_output.put_line(myStatus);  
 ---   dbms_output.put_line(myPass);
+      if myStatus != 200 then 
+        raise_application_error(-20100,'Not found or not allowed');
+      end if;
     end get_pass;
     
     ---procedure to get the cypher --> initialise when opening the session
@@ -42,8 +48,14 @@ create or replace package body KR2 as
       UTL_HTTP.SET_HEADER(l_http_request,'X-User-Token', myToken);
       l_http_response := UTL_HTTP.get_response(l_http_request);
       UTL_HTTP.read_text(l_http_response, myToPass, 32);
+      myStatus := l_http_response.status_code;
       UTL_HTTP.END_RESPONSE(l_http_response);
+      dbms_output.put_line(myStatus); 
 ---   dbms_output.put_line(myToPass);
+      if myStatus != 200 then 
+        raise_application_error(-20100,'Not found or not allowed');
+      end if;
+ 
     end get_topass;
     
 ---encrypting fonction using the mypass cypher

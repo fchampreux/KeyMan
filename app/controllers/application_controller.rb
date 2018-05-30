@@ -29,6 +29,11 @@ class ApplicationController < ActionController::Base
       format.js   { head :forbidden, content_type: 'text/html' }
     end
   end
+  
+# Set 404 error code when record not found
+def not_found
+  raise ActiveRecord::RecordNotFound.new('Not Found')
+end
 
 # Devise permitted parameters
   protected
