@@ -22,3 +22,6 @@ Gemfile~
 config/database.yml
 config/initializers/smtp.rb
 config/initializers/mailgun.rb
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
