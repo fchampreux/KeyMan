@@ -35,6 +35,11 @@ def not_found
   raise ActiveRecord::RecordNotFound.new('Not Found')
 end
 
+# Set 401 error code when access denied
+def permission_denied
+  render root_path, :status => :unauthorized
+end
+
 # Devise permitted parameters
   protected
   def configure_permitted_parameters

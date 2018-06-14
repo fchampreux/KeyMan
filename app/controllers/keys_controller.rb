@@ -37,7 +37,16 @@ class KeysController < ApplicationController
  
   #API
   def api
-#   @key = Key.find(params[:id])   
+    # Check if user token is still valid based on count and expiry date
+
+    if current_user.api_token_validity < Time.now or current_user.api_token_count <= 0
+      log_activity(0, 'no key', request.env['REMOTE_ADDR'], 'na', 'na', 'User access denied by API', false, false)
+      permission_denied
+    else
+      current_user.api_token_count -= 1
+      current_user.save
+    end
+  # Search key based on id and list of authorised users. If not found raises a http404 error thanks to not_found function   
     @key = Key.joins(:access_lists).where("access_lists.key_id = ? and access_lists.user_id = ? and ?
                                           between access_lists.valid_from and access_lists.valid_until",
                                     params[:id], current_user.id, Time.now).first or not_found
