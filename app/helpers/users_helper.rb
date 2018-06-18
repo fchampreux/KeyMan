@@ -19,4 +19,13 @@ module UsersHelper
           I18n.locale = I18n.default_locale
         end
     end
+    
+    def get_token_lifetime
+        token_lifetime = Parameter.select("value").where("code=?",'TOKEN_DAYS').take!
+    end
+    
+    def get_token_count
+        token_count = Parameter.select("value").where("code=?",'TOKEN_COUNT').take!
+    end
+
 end

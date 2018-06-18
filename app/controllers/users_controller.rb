@@ -62,6 +62,8 @@ class UsersController < ApplicationController
     @user = current_user
     @user.updated_by = current_user.user_name
     @user.authentication_token = (BCrypt::Password.create(current_user.user_name+Time.now.to_i.to_s)).last(30)
+    @user.api_token_count = Parameter.select("value").where("code=?",'TOKEN_COUNT')
+#    @user.api_token_validity = Time.now + Parameter.select("value").where("code=?",'TOKEN_DAYS')
     log_activity(@user.id, @user.user_name, request.env['REMOTE_ADDR'], 'na', 'na', 'User token created', false, false)
 
     respond_to do |format|

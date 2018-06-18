@@ -37,7 +37,7 @@ end
 
 # Set 401 error code when access denied
 def permission_denied
-  render root_path, :status => :unauthorized
+  raise CanCan::AccessDenied
 end
 
 # Devise permitted parameters

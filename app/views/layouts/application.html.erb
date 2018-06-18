@@ -38,8 +38,8 @@
 							</ul>
 						</nav>
 					</div>
-					<div class="row">
-						<div id="renew_token" class="top_menu">
+					<div class="row" id="renew_token">
+						<nav class="top_menu">
 							<% if user_signed_in? %>
 								<!-- token generation form -->
 								<%= form_for(current_user, url: set_token_user_path(current_user), method: :patch) do |f| %>
@@ -61,7 +61,7 @@
 									</ul>
 								<% end %>
 							<% end %>
-						</div>
+						</vav>
 					</div>
 				</div>
 			</div>
