@@ -20,12 +20,14 @@ module UsersHelper
         end
     end
     
-    def get_token_lifetime
-        token_lifetime = Parameter.select("value").where("code=?",'TOKEN_DAYS').take!
+    def token_lifetime
+      myParam = Parameter.select("value").where("code=?",'TOKEN_DAYS').take!
+      myParam.value.to_i
     end
     
-    def get_token_count
-        token_count = Parameter.select("value").where("code=?",'TOKEN_COUNT').take!
+    def token_countdown
+      myParam = Parameter.select("value").where("code=?",'TOKEN_COUNT').take!
+      myParam.value.to_i
     end
 
 end

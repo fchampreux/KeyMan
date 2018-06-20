@@ -66,8 +66,9 @@ class UsersController < ApplicationController
     @user = current_user
     @user.updated_by = current_user.user_name
     @user.authentication_token = (BCrypt::Password.create(current_user.user_name+Time.now.to_i.to_s)).last(30)
-    @user.api_token_count = Parameter.select("value").where("code=?",'TOKEN_COUNT')
-#    @user.api_token_validity = Time.now + Parameter.select("value").where("code=?",'TOKEN_DAYS')
+    logger.info "Search for token count parameter"
+    @user.api_token_count = helpers.token_countdown
+    @user.api_token_validity = Date.today + helpers.token_lifetime
     log_activity(@user.id, @user.user_name, request.env['REMOTE_ADDR'], 'na', 'na', 'User token created', false, false)
 
     respond_to do |format|
@@ -105,6 +106,6 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :first_name, :user_name, :group_id, :role_id, :email, :language, :section,
-                                   :api_token_count, :api_token_validity, :password, :password_confirmation)
+                                   :password, :password_confirmation)
     end
 end
