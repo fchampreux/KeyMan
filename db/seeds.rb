@@ -27,6 +27,7 @@ Parameter.create(id: 999, name: '(none)', description: 'These parameters do not 
 Parameter.create(id: 1000, name: 'Roles list', description: 'Lists the Roles in the application for security purposes', code: 'ROLES', value: 'Roles', list_name: 'All lists', created_by: 'RAKE', updated_by: 'RAKE')
 Parameter.create(id: 1001, name: 'Key Sizes list', description: 'Lists the available sizes for cryptographic keys', code: 'KEY_SIZES', value: 'Key Sizes', list_name: 'All lists', created_by: 'RAKE', updated_by: 'RAKE')
 Parameter.create(id: 1002, name: 'Sections list', description: 'Lists the sections users belong to', code: 'SECTIONS', value: 'Sections', list_name: 'All lists', created_by: 'RAKE', updated_by: 'RAKE')
+Parameter.create(id: 1003, name: 'Servers list', description: 'Lists the servers allowed to access cryptographic keys', code: 'SERVERS', value: 'Servers', list_name: 'All lists', created_by: 'RAKE', updated_by: 'RAKE')
 Parameter.create(id: 100, name: 'Information technologies', description: 'Resources related to Information Technologies', code: 'R/IT', value: 'R/IT', list_name: 'Sections', created_by: 'RAKE', updated_by: 'RAKE')
 #Parameter.create(id: 101, name: 'Population', description: 'Statistiques liées à la population', code: 'BB/POP', value: 'BB/POP', list_name: 'Sections', created_by: 'RAKE', updated_by: 'RAKE')
 #Parameter.create(id: 102, name: 'Démographie et migration', description: 'Statistiques liées à la démographie et aux migrations', code: 'BB/DEM', value: 'BB/DEM', list_name: 'Sections', created_by: 'RAKE', updated_by: 'RAKE')

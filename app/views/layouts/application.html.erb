@@ -28,7 +28,9 @@
 						<nav class="top_menu">
 							<ul>
 								<% if user_signed_in? %>
-									<li> <button id="key_toggle">K</button> </li>
+									<% if can? :renew_token, current_user %>
+                    <li> <button id="key_toggle">K</button> </li>
+                  <% end %>
 									<li> <%= t('User') %>: <%= link_to (current_user.first_name + ' ' + current_user.name), pass_user_path(current_user) %></li>
 									<li> | <%= link_to t('Sign_out'), destroy_user_session_path, method: "delete" %></li>
 								<% else %>

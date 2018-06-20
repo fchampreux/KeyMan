@@ -38,14 +38,16 @@ class Ability
       can :manage, Group
       can :manage, User
       can :manage, Parameter
+      cannot :renew_token, User
 
     when '1' # Keys manager aka KeyAdmin or Data Protection Officer (organisation wide)
       can :manage, Group
       can :manage, Key 
       can :read, AccessList 
       can :read, User
-      can :manage, User, id: user.id
+      can [:update, :pass], User, id: user.id
       can :read, Parameter
+      cannot :renew_token, User
 
     when '2' # Business manager aka Stat Adminn
       can :manage, Group, id: user.group_id # manage his own group only
@@ -55,6 +57,7 @@ class Ability
       can :read, User
       can [:update, :pass], User, id: user.id
       can :read, Parameter
+      cannot :renew_token, User
 
     when '3' # Data Owner aka Stat Owner
       can [:read, :update], Key
@@ -63,13 +66,15 @@ class Ability
       can :read, User
       can [:update, :pass], User, id: user.id
       can :read, Parameter
+      cannot :renew_token, User
       
     when '4' # Keys user aka Stat Worker or Data Steward
       can :read, Key
       can :read, Group
       can :read, User
-      can [:update, :pass], User, id: user.id
+      can [:update, :pass, :set_token], User, id: user.id
       can :read, Parameter
+      can :renew_token, User
       
     else
       can :read, Group

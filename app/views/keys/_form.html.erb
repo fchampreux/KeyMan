@@ -73,8 +73,8 @@
 				<td> <%= access.collection_select :user_id, data_stewards_list, :id, :user_name %> </td>
 				<td> <%= access.check_box :allow_encrypt %> </td>
 				<td> <%= access.check_box :allow_decrypt %> </td>
-				<td> <%= access.text_field :valid_from %> </td>
-				<td> <%= access.text_field :valid_until %> </td>
+				<td> <%= access.date_field :valid_from %> </td>
+				<td> <%= access.date_field :valid_until %> </td>
 			<% end %>
   <% else %>
    <% @key.access_lists.each do |access| %>

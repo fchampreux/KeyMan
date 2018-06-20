@@ -37,7 +37,7 @@ class KeysController < ApplicationController
  
   #API
   def api
-    # Check if user token is still valid based on count and expiry date
+    # Check if user token is still valid based on token countdown and expiry date
 
     if current_user.api_token_validity < Time.now or current_user.api_token_count <= 0
       log_activity(0, 'no key', request.env['REMOTE_ADDR'], 'na', 'na', 'User access denied by API', false, false)
