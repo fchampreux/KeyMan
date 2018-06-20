@@ -67,7 +67,7 @@ class KeysController < ApplicationController
   # PATCH/PUT /access_lists/1.json
   def update
    @key.updated_by = current_user.user_name
-   log_activity(@key.id, @key.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Access List update', false, false)
+   log_activity(@key.id, @key.name, request.env['REMOTE_ADDR'], 'na', 'na', 'Access List updated', false, false)
    respond_to do |format|
       if @key.update(key_params)
         format.html { redirect_to @key.group, notice: 'Access List was successfully updated.' }

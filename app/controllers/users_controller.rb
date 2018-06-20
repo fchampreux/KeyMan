@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.where("is_active = true")
+    @users = User.where("is_active = true").order(:user_name)
   end
 
   # GET /users/1
@@ -21,6 +21,10 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user.updated_by = current_user.user_name
+  end
+  
+  def pass
     @user.updated_by = current_user.user_name
   end
 

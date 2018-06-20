@@ -1,1 +1,1 @@
-$VERSION='version 0.3'
+$VERSION='version 1.0'

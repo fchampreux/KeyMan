@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   resources :requests
   resources :audit_trails, :only=>[:index], :controller=>:audit_trails
   resources :keys 
-  resources :users, :only=>[:new, :create, :edit, :update, :show, :index, :set_token, :destroy] do
+  resources :users, :only=>[:new, :create, :edit, :update, :show, :index, :set_token, :pass, :destroy] do
     patch 'set_token', on: :member
+    get 'pass', on: :member
   end
   get    '/api/:id/', to: 'keys#api'
 

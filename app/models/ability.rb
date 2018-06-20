@@ -44,6 +44,7 @@ class Ability
       can :manage, Key 
       can :read, AccessList 
       can :read, User
+      can :manage, User, id: user.id
       can :read, Parameter
 
     when '2' # Business manager aka Stat Adminn
@@ -52,6 +53,7 @@ class Ability
       can [:read, :update], Key
       can :read, AccessList 
       can :read, User
+      can [:update, :pass], User, id: user.id
       can :read, Parameter
 
     when '3' # Data Owner aka Stat Owner
@@ -59,18 +61,19 @@ class Ability
       can :manage, AccessList 
       can :read, Group
       can :read, User
+      can [:update, :pass], User, id: user.id
       can :read, Parameter
       
     when '4' # Keys user aka Stat Worker or Data Steward
       can :read, Key
       can :read, Group
       can :read, User
+      can [:update, :pass], User, id: user.id
       can :read, Parameter
       
     else
       can :read, Group
-      
-    end
-          
+
+    end    
   end
 end
