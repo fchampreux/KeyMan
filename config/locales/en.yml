@@ -21,7 +21,6 @@
 
 en:
   #Layout
-  User:         "User"
   CKManager:    "Cryptographic Keys Manager"
   Token:        "Token"
   Count:        "Count"
@@ -46,9 +45,9 @@ en:
   Code:         "Code"
   Description:  "Description"
   CreatedAt:    "Created at"
-  UpatedAt:     "Updated at"
+  UpdatedAt:     "Updated at"
   CreatedBy:    "Created by"
-  UpatedBy:     "Updated by"
+  UpdatedBy:     "Updated by"
   
   #Group
   Group:        "Group"
@@ -56,6 +55,7 @@ en:
   EditGroup:    "Edit the Group"
   KeysList:     "List of cryptographic keys"
   GroupUsers:   "Members of group"
+  Responsible:  "Responsible"
   
   #Key
   Key:          "Key"
@@ -64,10 +64,24 @@ en:
   Hash:		      "Hash"
   
   #User
+  User:         "User"
   FirstName:	  "First name"
   Role:         "Role"
   Section:	    "Section"
   PKI_file:     "Please upload your Public Key (if available):"
   
+  #Audit trail
+  AuditTrail:   "Audit records"
+  Action:       "Action"
+  ObjectId:     "Object id"
+  ObjectClass:  "Object class"
+  ObjectName:   "Object name"
+  ServerName:   "Server IP"
+  
   #Messages
   Sure:         "Please confirm deletion"
+
+  will_paginate:
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"

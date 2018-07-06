@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Audit records</h1>
+<h1><%= t('AuditTrail') %></h1>
 <%= will_paginate %>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th> user </th>
-        <th> action </th>
-        <th> object_id </th>
-        <th> object_class </th>
-        <th> object_name </th>
-        <th> server_name </th>
-        <th> description </th>
+      <th> <%= t('User') %></th>
+        <th> <%= t('Action') %> </th>
+        <th> <%= t('ObjectId') %> </th>
+        <th> <%= t('ObjectClass') %> </th>
+        <th> <%= t('ObjectName') %> </th>
+        <th> <%= t('ServerName') %> </th>
+        <th> <%= t('Description') %> </th>
 <!--    <th> used_encrypt </th> Only necessary if the database package can trace this 
         <th> used_decrypt </th> -->
-        <th> created_at </th>
-        <th> created_by </th>
+        <th> <%= t('CreatedAt') %> </th>
+        <th> <%= t('CreatedBy') %> </th>
     </tr>
   </thead>
 

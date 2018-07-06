@@ -21,7 +21,6 @@
 
 fr:
   #Layout
-  User:         "Utilisateur"
   CKManager:    "Trousseau de clefs de chiffrement"
   Token:        "Token"
   Count:        "Compte"
@@ -44,9 +43,9 @@ fr:
   Code:         "Code"
   Description:  "Description"
   CreatedAt:    "Créé le"
-  UpatedAt:     "Modifié le"
+  UpdatedAt:    "Modifié le"
   CreatedBy:    "Créé par"
-  UpatedBy:     "Modifié par"
+  UpdatedBy:    "Modifié par"
   
   #Group
   Group:        "Secteur"
@@ -54,6 +53,7 @@ fr:
   EditGroup:    "Modifier le secteur"
   KeysList:     "Liste des clefs"
   GroupUsers:   "Membres du secteur"
+  Responsible:  "Responsable"
   
   #Key
   Key:          "Clef"
@@ -62,10 +62,25 @@ fr:
   Hash:		      "Hachage"
   
   #User
+  User:         "Utilisateur"
   FirstName:	  "Prénom"
   Role:         "Rôle"
   Section:	    "Section"
   PKI_file:     "Chargez votre clef publique (si disponible):"
   
+    #Audit trail
+  AuditTrail:   "Audit records"
+  Action:       "Action"
+  ObjectId:     "Identifiant"
+  ObjectClass:  "Type d'objet"
+  ObjectName:   "Objet"
+  ServerName:   "Adresse IP"
+  
   #Messages
   Sure:         "Confirmez-vous la suppression ?"
+  
+  
+  will_paginate:
+    previous_label: "&#8592; Précédent"
+    next_label: "Suivant &#8594;"
+    page_gap: "&hellip;"

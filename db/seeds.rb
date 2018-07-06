@@ -43,7 +43,7 @@ end
 # Should define id here because not all db start with 0 or 1 
 if User.count==0
 puts "Creating administrator"
-User.create(name: 'Administrator', first_name: 'GDPR', is_admin: true, email: 'fred@nohoo.biz', user_name: 'Admin', language: ':en', section: 'R/IT',
+User.create(name: 'Administrator', first_name: 'GDPR', is_admin: true, email: 'fred@nohoo.biz', user_name: 'Admin', language: 'en', section: 'R/IT',
             group_id: 1, password: '@KeyAdmin15!', password_confirmation: '@KeyAdmin15!', role_id: 1, created_by: 'RAKE', updated_by: 'RAKE')
 end
 

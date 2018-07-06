@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  #  include SessionsHelper
+  include UsersHelper
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
   
 # Audit trail recording function
     def log_activity(objectId, objectName, server, table, column, description, encrypt, decrypt)
