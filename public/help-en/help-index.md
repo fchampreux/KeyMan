@@ -1,11 +1,13 @@
-**GDPR Keys Help** user manual for securely server for sharing symetrical ciphers between applications.
+**GDPR Keys Help** - user manual for **Keyman** secured keystore dedicated to sharing symetrical ciphers between applications.
 
-*Features:*
+*Table of content:*
 
-* Manage groups, users and roles
-* Manage several keys per group
-* Automatically generate unique ciphers
-* Serves authenticated JSON API through https protocol
-* Allows crypting of ciphers with PKI (not available yet)
+* [Keyman's concepts](concepts.md)
+* [Manage groups](groups.md)
+* [Manage users and roles](users.md)
+* [Manage and share keys](keys.md)
+* [Security configuration](security.md)
+* [Parameters](parameters.md)
+* [Audit trail](audit.md)
 
-Link : [Help for Logging](logging.md)
+Link : [Documentation](https://gdprkeys.eu/documentation)

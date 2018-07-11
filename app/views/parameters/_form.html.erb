@@ -12,32 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label t('Name') %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
+    <%= f.label t('Description') %>
     <%= f.text_field :description %>
   </div>
 
   <div class="field">
-    <%= f.label :code %>
+    <%= f.label t('Code') %>
     <%= f.text_field :code %>
   </div>
 
   <div class="field">
-    <%= f.label :value %>
+    <%= f.label t('Value') %>
     <%= f.text_field :value %>
   </div>
 
   <div class="field">
-    <%= f.label :list_name %>
+    <%= f.label t('ListName') %>
     <%= f.collection_select :list_name, get_parameters_lists, :value, :name %>
   </div>
   <br/>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t('Validate')%>
   </div>
 <% end %>

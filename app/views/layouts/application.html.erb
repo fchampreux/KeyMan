@@ -31,7 +31,7 @@
 									<% if can? :renew_token, current_user %>
                     <li> <button id="key_toggle">K</button> </li>
                   <% end %>
-									<li> <%= t('User') %>: <%= link_to (current_user.first_name + ' ' + current_user.name), pass_user_path(current_user) %></li>
+									<li> <%= t('UserName') %>: <%= link_to (current_user.first_name + ' ' + current_user.name), pass_user_path(current_user) %></li>
 									<li> | <%= link_to t('Sign_out'), destroy_user_session_path, method: "delete" %></li>
 								<% else %>
 									<li> <%= link_to t('Sign_in'), new_user_session_path %></li>
@@ -59,7 +59,7 @@
 										<li><%= t('Token') %>: <%= f.text_field :authentication_token, :size => "16", readonly: true %> </li>
 										<li><%= t('Count') %>: <%= f.text_field :api_token_count, :size => "4" %> </li>
 										<li><%= t('Validity') %>: <%= f.date_field :api_token_validity, :size => "10" %> </li>
-										<li class="actions" ><%= f.submit "Renew" %></li>
+										<li class="actions" ><%= f.submit t('Renew') %></li>
 									</ul>
 								<% end %>
 							<% end %>

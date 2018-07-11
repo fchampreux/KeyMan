@@ -25,6 +25,8 @@ fr:
   Token:        "Token"
   Count:        "Compte"
   Validity:     "Validité"
+  Renew:        "Reouveler"
+  Validate:     "Valider"
   
   #Menus
   Users:        "Utilisateurs"
@@ -42,6 +44,8 @@ fr:
   Name:         "Nom"
   Code:         "Code"
   Description:  "Description"
+  Value:        "Valeur"
+  ListName:     "Liste"
   CreatedAt:    "Créé le"
   UpdatedAt:    "Modifié le"
   CreatedBy:    "Créé par"
@@ -61,15 +65,31 @@ fr:
   ValidTo:      "Valide jusqu'au"
   Hash:		      "Hachage"
   
+  #Parameter
+  EditParameter: "Modifier le paramètre"
+  NewParameter: "Nouveau paramètre"
+  Value:        "Valeur"
+  ListName:     "Liste"
+  Edit:         "Modifier"
+  Inactivate:   "Désactiver"
+  
   #User
-  User:         "Utilisateur"
+  UserName:     "Utilisateur"
   FirstName:	  "Prénom"
+  LastName:     "Nom"
+  eMail:        "eMail"
   Role:         "Rôle"
   Section:	    "Section"
+  NewUser:      "Nouvel utilisateur"
+  EditUser:     "Modifier"
+  EditUserPass: "Modifier le mot de passe"
+  Password:     "Mot de passe"
+  Confirmation: "Confirmation"
   PKI_file:     "Chargez votre clef publique (si disponible):"
   
-    #Audit trail
-  AuditTrail:   "Audit records"
+  #Audit trail
+  Audit:        "Audit"
+  AuditTrail:   "Evénements"
   Action:       "Action"
   ObjectId:     "Identifiant"
   ObjectClass:  "Type d'objet"

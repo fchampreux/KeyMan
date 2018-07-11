@@ -25,6 +25,8 @@ en:
   Token:        "Token"
   Count:        "Count"
   Validity:     "Validity"
+  Renew:        "Renew"
+  Validate:     "Validate"
   
   #Menus
   Users:        "Users"
@@ -63,14 +65,30 @@ en:
   ValidTo:      "Valid until"
   Hash:		      "Hash"
   
+  #Parameter
+  EditParameter: "Editing parameter"
+  NewParameter: "New parameter"
+  Value:        "Value"
+  ListName:     "List name"
+  Edit:         "Edit"
+  Inactivate:   "Inactivate"
+  
   #User
-  User:         "User"
+  UserName:     "User"
   FirstName:	  "First name"
+  LastName:  	  "Last name"
+  eMail:        "eMail"
   Role:         "Role"
   Section:	    "Section"
+  NewUser:      "New User"
+  EditUser:     "Edit user"
+  EditUserPass: "Change password"
+  Password:     "Password"
+  Confirmation: "Confirmation"
   PKI_file:     "Please upload your Public Key (if available):"
   
   #Audit trail
+  Audit:        "Audit"
   AuditTrail:   "Audit records"
   Action:       "Action"
   ObjectId:     "Object id"

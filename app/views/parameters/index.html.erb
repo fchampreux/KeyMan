@@ -1,14 +1,14 @@
-<h1>Parameters</h1>
+<h1><%= t('Parameters') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Code</th>
-      <th>Value</th>
-      <th>List</th>
-      <th colspan=2>Actions</th>
+      <th><%= t('Name')%></th>
+      <th><%= t('Description')%></th>
+      <th><%= t('Code')%></th>
+      <th><%= t('Value')%></th>
+      <th><%= t('List')%></th>
+      <th colspan=2><%= t('Actions')%></th>
     </tr>
   </thead>
 
@@ -21,8 +21,8 @@
         <td><%= parameter.value %></td>
         <td><%= parameter.list_name %></td>
 <!--    <td><%= link_to 'Show', parameter %></td> -->
-        <td><%= link_to 'Edit', edit_parameter_path(parameter) %></td>
-        <td><%= link_to 'Inactivate', parameter, method: :delete, data: { confirm: t('Sure') } %></td>
+        <td><%= link_to t('Edit'), edit_parameter_path(parameter) %></td>
+        <td><%= link_to t('Inactivate'), parameter, method: :delete, data: { confirm: t('Sure') } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Parameter', new_parameter_path %>
+<%= link_to t('NewParameter'), new_parameter_path %>

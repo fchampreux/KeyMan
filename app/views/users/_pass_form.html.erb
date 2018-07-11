@@ -17,11 +17,11 @@
 
   <div class="row">
     <div class="col-md-4">
-      <%= f.label :password %>
+      <%= f.label t('Password') %>
       <%= f.password_field :password, autocomplete: "off" %>
     </div>
     <div class="col-md-4">
-      <%= f.label :password_confirmation %>
+      <%= f.label t('Confirmation') %>
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
   </div>
@@ -29,7 +29,7 @@
 <div class="row">
   <div class="col-md-2">
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit t('Validate') %>
     </div>
   </div>  
 </div>
