@@ -25,6 +25,7 @@ create or replace package body KR2 as
       l_http_request  := UTL_HTTP.begin_request(myURL);
       UTL_HTTP.SET_HEADER(l_http_request,'X-User-Name', myUserName);
       UTL_HTTP.SET_HEADER(l_http_request,'X-User-Token', myToken);
+      UTL_HTTP.SET_HEADER(l_http_request, 'User-Agent', 'Specific'); --Keyman should check the user agent not to deliver key out of API 
       l_http_response := UTL_HTTP.get_response(l_http_request);
       UTL_HTTP.read_text(l_http_response, myPass, 32);
       myStatus := l_http_response.status_code;
@@ -46,7 +47,7 @@ create or replace package body KR2 as
       l_http_request  := UTL_HTTP.begin_request(myURL);
       UTL_HTTP.SET_HEADER(l_http_request,'X-User-Name', myUserName);
       UTL_HTTP.SET_HEADER(l_http_request,'X-User-Token', myToken);
-      l_http_response := UTL_HTTP.get_response(l_http_request);
+      UTL_HTTP.SET_HEADER(l_http_request, 'User-Agent', 'Specific'); --Keyman should check the user agent not to deliver key out of API l_http_response := UTL_HTTP.get_response(l_http_request);
       UTL_HTTP.read_text(l_http_response, myToPass, 32);
       myStatus := l_http_response.status_code;
       UTL_HTTP.END_RESPONSE(l_http_response);
