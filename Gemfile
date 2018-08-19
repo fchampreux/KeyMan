@@ -5,7 +5,6 @@ gem 'pg'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'bootstrap-datepicker-rails', '~> 1.6'
 gem 'will_paginate', '~> 3.1'
-gem 'bootstrap-will_paginate', '~> 1.0'
 gem 'nested_form_fields'
 gem 'cancancan', '~> 2.0'
 gem 'simple_token_authentication', '~> 1.0'
@@ -28,20 +27,20 @@ gem 'jbuilder', '~> 2.6'
 gem 'bcrypt', '~> 3.1'
 gem 'devise'
 gem 'devise_zxcvbn'
-gem 'rails-i18n', git: 'https://github.com/svenfuchs/rails-i18n', branch: 'master' # For 5.x
+# gem 'rails-i18n', '~> 5.1'
 # MarkDown parser
 gem 'redcarpet'
 gem 'mailgun-ruby', '~>1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  # gem 'byebug', platform: :mri
   gem 'annotate', '~> 2.7'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_bot_rails'
   gem 'capybara'
-  gem 'faker'
+  gem 'selenium-webdriver', '~> 2.53'
 end
 
 group :development do
