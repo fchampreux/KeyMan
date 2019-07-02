@@ -1,20 +1,18 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0'
-gem 'pg'
-gem 'bootstrap-sass', '~> 3.3'
-gem 'bootstrap-datepicker-rails', '~> 1.6'
+gem 'rails', '~> 5.2'
+gem 'bootstrap-sass'
+# Use SCSS for stylesheets
+gem 'sassc-rails'
 gem 'will_paginate', '~> 3.1'
 gem 'nested_form_fields'
-gem 'cancancan', '~> 2.0'
-gem 'simple_token_authentication', '~> 1.0'
+gem 'cancancan', '~> 2.3'
+gem 'pg'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.6'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 3.0'
+gem 'uglifier', '~> 4.1'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Use jquery as the JavaScript library
@@ -25,9 +23,11 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.6'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1'
+# Authorisations
 gem 'devise'
 gem 'devise_zxcvbn'
-# gem 'rails-i18n', '~> 5.1'
+gem 'simple_token_authentication', '~> 1.0'
+
 # MarkDown parser
 gem 'redcarpet'
 gem 'mailgun-ruby', '~>1.1'
@@ -36,11 +36,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # gem 'byebug', platform: :mri
   gem 'annotate', '~> 2.7'
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'shoulda-matchers'
   gem 'rspec-rails', '~> 3.5'
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', '~> 5.0'
   gem 'capybara'
-  gem 'selenium-webdriver', '~> 2.53'
+  gem 'selenium-webdriver', '~> 3.140'
 end
 
 group :development do

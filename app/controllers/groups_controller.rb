@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
   # GET /groups
   # GET /groups.json
   def index
-    @groups = Group.where("is_active = true")
+    @groups = Group.where("is_active = true").order(:code)
   end
 
   # GET /groups/1
