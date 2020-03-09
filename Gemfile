@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# Common
+
 gem 'rails', '~> 5.2'
 gem 'bootstrap-sass'
 # Use SCSS for stylesheets
