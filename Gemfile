@@ -12,7 +12,7 @@ gem 'cancancan', '~> 2.3'
 gem 'pg'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.6'
+gem 'puma', '~> 4.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 4.1'
 # Use CoffeeScript for .coffee assets and views
